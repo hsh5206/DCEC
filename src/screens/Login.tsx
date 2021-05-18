@@ -20,7 +20,7 @@ export default function Login() {
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <View style={styles.header}/>
       <View style={styles.content}>
-        <Image source={require('./images/DCEC_logo_v2.png')}/>
+        <Image source={require('../assets/images/DCEC_logo_v2.png')}/>
         <TextInput
           placeholder= "      ID"
           style= {[styles.inputText,{marginTop: '10%'}]}  
