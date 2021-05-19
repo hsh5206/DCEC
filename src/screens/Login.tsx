@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useCallback, useEffect, useRef} from 'react'
 import {
   StyleSheet,
   SafeAreaView,
@@ -7,32 +7,42 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
-  Alert
+  Alert,
+  Platform
 } from 'react-native'
+import {useNavigation} from '@react-navigation/native'
 import {Colors} from 'react-native-paper'
 
-const onPress = () => {
-  Alert.alert('login Pressed', 'message')
+const onPressLogin = () => {
+  Alert.alert('Login Pressed', 'message')
 }
 
 export default function Login() {
+  //navigation
+  const navigation = useNavigation()
+  const goSignup = useCallback(() => navigation.navigate('Signup'), [])
+  
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <View style={styles.header}/>
       <View style={styles.content}>
-        <Image source={require('../assets/images/DCEC_logo_v2.png')}/>
+        <Image source={require('../assets/images/DCEC_logo_v1.png')}/>
         <TextInput
           placeholder= "      ID"
-          style= {[styles.inputText,{marginTop: '10%'}]}  
+          style= {[styles.inputText]}  
         />
         <TextInput
           placeholder= "      PW"
           style= {styles.inputText}       
         />
-        <TouchableOpacity style= {styles.customButton}>
-          <Text style={{color:'white', fontSize:18, fontWeight:'300'}} onPress={onPress}>로그인</Text>
-        </TouchableOpacity>
-
+        <View style={{height: '40%', flexDirection: 'row'}}>
+          <TouchableOpacity style={styles.loginButton}>
+            <Text style={{color:'white', fontSize:18, fontWeight:'300'}} onPress={onPressLogin}>로그인</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.signupButton}>
+            <Text style={{color:Colors.grey600, fontSize:15, fontWeight:'400'}} onPress={goSignup}>회원가입</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={styles.footer}/>
     </SafeAreaView>
@@ -64,16 +74,22 @@ const styles = StyleSheet.create({
     height:'10%',
     marginVertical: '1%',
     borderWidth: 2,
-    borderColor: Colors.grey700,
-    borderRadius: 25
+    borderColor: Colors.grey500,
+    borderRadius: 20
   },
-  customButton: {
-    width: '50%',
-    height: '10%',
+  loginButton: {
+    width: '60%',
+    height: '17%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '10%',
+    marginTop: '7%',
     backgroundColor: Colors.grey800,
-    borderRadius: 25
+    borderRadius: 13
+  },
+  signupButton: {
+    width: '30%',
+    height: '10%',
+    alignItems: 'center',
+    marginTop: Platform.select({ios:'11%', android: '10%'})
   }
 })
