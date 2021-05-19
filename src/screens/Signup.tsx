@@ -17,8 +17,8 @@ export default function Login() {
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <View style={styles.header}>
-        <View style ={{flex: 0.8, marginTop: '3%', flexDirection: 'row'}}>
-        <Text style={{fontSize: 20, marginLeft: '3%', marginTop:'13%'}}>회원가입</Text>
+        <View style ={{flex: 0.8, marginTop: '3%'}}>
+        <Text style={{fontSize: 25, marginLeft: '3%', marginTop:'8%'}}>회원가입</Text>
         </View>
         <View style={{width: '95%', borderBottomWidth:1, borderColor:'#444'}}/>
       </View>
@@ -38,7 +38,11 @@ export default function Login() {
         </View>
       </View>
       
-      <View style={styles.footer}><Text>footer</Text></View>
+      <View style={styles.footer}>
+      <TouchableOpacity style={styles.signupButton}>
+            <Text style={{color:'white', fontSize:18, fontWeight:'300'}} onPress={onPress}>회원가입</Text>
+          </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }
@@ -56,7 +60,6 @@ const styles = StyleSheet.create({
   footer: {
     height: '20%',
     marginHorizontal:'5%',
-    backgroundColor: 'blue',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center'
@@ -84,4 +87,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.grey800,
     borderRadius: 10
   },
+  signupButton: {
+    width: '50%',
+    height: '40%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.grey800,
+    borderRadius: 10
+  }
 })
