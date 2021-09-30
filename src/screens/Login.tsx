@@ -11,16 +11,17 @@ import {
   Platform
 } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
+import SQLite from 'react-native-sqlite-storage';
 import {Colors} from 'react-native-paper'
 
-const onPressLogin = () => {
-  Alert.alert('Login Pressed', 'message')
-}
-
 export default function Login() {
+  //db
+  const db = SQLite.openDatabase({name:'user.db',location:'default'}, this.openCB, this.errorCB)
+
   //navigation
   const navigation = useNavigation()
   const goSignup = useCallback(() => navigation.navigate('Signup'), [])
+  const onPressLogin = useCallback(() => navigation.navigate('MainNavigator'),[])
   
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
@@ -28,11 +29,11 @@ export default function Login() {
       <View style={styles.content}>
         <Image source={require('../assets/images/DCEC_logo_v1.png')}/>
         <TextInput
-          placeholder= "      ID"
+          placeholder= "ID"
           style= {[styles.inputText]}  
         />
         <TextInput
-          placeholder= "      PW"
+          placeholder= "PW"
           style= {styles.inputText}       
         />
         <View style={{height: '40%', flexDirection: 'row'}}>
@@ -75,7 +76,8 @@ const styles = StyleSheet.create({
     marginVertical: '1%',
     borderWidth: 2,
     borderColor: Colors.grey500,
-    borderRadius: 20
+    borderRadius: 20,
+    paddingLeft: 20
   },
   loginButton: {
     width: '60%',
