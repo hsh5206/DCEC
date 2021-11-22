@@ -7,14 +7,14 @@ import TechInfo_naver from '../screens/MainPage/Board/TeckInfo/TechInfo_naver'
 import TechInfo_wooahan from '../screens/MainPage/Board/TeckInfo/TechInfo_wooahan'
 import TechInfo_dangeun from '../screens/MainPage/Board/TeckInfo/TechInfo_dangeun'
 import TechInfo_line from '../screens/MainPage/Board/TeckInfo/TechInfo_line'
-import Tech_Board from '../screens/MainPage/Board/TeckInfo/TeckBoard'
+import Tech_Board from '../screens/MainPage/Board/TeckInfo/TechBoard_render'
 
 const Stack = createStackNavigator()
 
 export default function StartNavigator(){
   return(
     <Stack.Navigator>
-      <Stack.Screen name="techBoard" component={Tech_Board} options={{headerTitle:' ', headerBackTitle:' '}}/>
+      <Stack.Screen name="techBoard" component={Tech_Board} options={{headerShown:false}}/>
       <Stack.Screen name="kakao" component={TechInfo_kakao} options={{headerTitle:' ', headerBackTitle:' '}}/>
       <Stack.Screen name="naver" component={TechInfo_naver} options={{headerTitle:' ', headerBackTitle:' '}}/>
       <Stack.Screen name="wooahan" component={TechInfo_wooahan} options={{headerTitle:' ', headerBackTitle:' '}}/>

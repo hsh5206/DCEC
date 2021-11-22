@@ -15,7 +15,7 @@ export default function BottomBar() {
     const tablePress = useCallback(() => navigation.navigate('BoardNavigator'), [])
     const bellPress = useCallback(() => navigation.navigate('Nontification'), [])
     const accountPress = useCallback(() => navigation.navigate('SettingNavigator'), [])
-    const TechInfoPress = useCallback(() => navigation.navigate('BoardNavigator'), [])
+    const TechInfoPress = useCallback(() => navigation.navigate('TechNavigator'), [])
   
   return(
     <View style={[styles.viewmain]}>

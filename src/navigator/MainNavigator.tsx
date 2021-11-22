@@ -7,6 +7,7 @@ import UserSettings from '../screens/MainPage/UserSettings'
 import Profile from '../screens/Profile'
 import BoardNavigator from './BoardNavigator'
 import SettingNavigator from './SettingNavigator'
+import TechNavigator from './TechNavigator'
 import Baekjun_Ranking_Plus from '../screens/MainPage/Board/Baekjun/Baekjun_Ranking_Plus'
 import Github_Ranking_Plus from '../screens/MainPage/Board/Github/Github_Ranking_Plus'
 
@@ -30,6 +31,11 @@ export default function StartNavigator(){
       <Stack.Screen
             name="SettingNavigator"
             component={SettingNavigator}
+            options={{headerShown: false}}
+      />
+      <Stack.Screen
+            name="TechNavigator"
+            component={TechNavigator}
             options={{headerShown: false}}
       />
     </Stack.Navigator>

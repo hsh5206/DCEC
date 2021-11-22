@@ -5,9 +5,9 @@ import {
   View,
   Text,
 } from 'react-native'
-import BottomBar from '../BottomBar'
-import TopBar from '../TopBar'
-import Board_Content from './Board_Content'
+import BottomBar from '../../BottomBar'
+import TopBar from '../../TopBar'
+import TechBoard from './TeckBoard'
 
  
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
     <View style={{flex:1, backgroundColor:'white'}}>
       <TopBar/>
       <View style={styles.content}>
-        <Board_Content/>
+        <TechBoard/>
       </View>
       <View style={{paddingBottom:'5%'}}>
         <BottomBar/>

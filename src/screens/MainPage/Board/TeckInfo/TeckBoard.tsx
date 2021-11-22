@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react'
-import {StyleSheet, View, TouchableOpacity, Text} from 'react-native'
+import {StyleSheet, View, TouchableOpacity, Text, SafeAreaView, ScrollView, ImageBackground} from 'react-native'
 import {Colors} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import {useNavigation} from '@react-navigation/native'
@@ -18,44 +18,48 @@ export default function TechBoard() {
     const linePress = useCallback(() => navigation.navigate('line'), [])
   
   return(
-    <View style={[styles.view]}>
-      <TouchableOpacity style={styles.Button} onPress={kakaoPress}>
-        <Text style={{color:'white', fontSize:15, fontWeight:'900'}}> 카카오 </Text>
-      </TouchableOpacity >
-      <TouchableOpacity style={styles.Button} onPress={naverPress}>
-        <Text style={{color:'white', fontSize:15, fontWeight:'900'}}> 네이버 </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.Button} onPress={wooahanress}>
-        <Text style={{color:'white', fontSize:15, fontWeight:'900'}}> 우아한 형제들 </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.Button} onPress={dangeunPress}>
-        <Text style={{color:'white', fontSize:15, fontWeight:'900'}}> 당근 마켓 </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.Button} onPress={linePress}>
-        <Text style={{color:'white', fontSize:15, fontWeight:'900'}}> 라인 </Text>
-      </TouchableOpacity>
+    <View style={{flex:1, backgroundColor:'white'}}>
+      <ImageBackground style={styles.content}source={require("../../../../assets/images/Board_Content_Design.png")}>
+        <View>
+          <TouchableOpacity style={{marginTop:120, marginLeft:190}}onPress={kakaoPress}>
+            <Text style={styles.button}>우아한 형제들</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={{marginTop:40, marginLeft:50}}onPress={naverPress}>
+            <Text style={styles.button}>네이버</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={{marginTop:110, marginLeft:205}}onPress={wooahanress}>
+            <Text style={styles.button}>당근 마켓</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={{marginTop:130, marginLeft:50}}onPress={dangeunPress}>
+            <Text style={styles.button}>카카오</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={{marginTop:50, marginLeft:220}}onPress={linePress}>
+            <Text style={styles.button}>라인</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+      
     </View>
   )
 }
 
 //하단 아이콘 flexDirection->가로배치 alignItems->세로기준 가운데 justyfyContent->가로 배치
-const styles = StyleSheet.create({
-  view: {
+const
+styles = StyleSheet.create({
+  content: {
     flex:1,
-    alignItems: 'center',
-    backgroundColor: Colors.white
+    marginHorizontal:'5%',
   },
-  text: {
-    fontSize: 20,
-    color: 'white'
-  },
-  Button: {
-    width: '65%',
-    height: '10%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '5%',
-    backgroundColor: '#52b9f1',
-    borderRadius: 15
-  },
+  button: {
+    fontSize:20,
+    color:Colors.grey800
+  }
 })
