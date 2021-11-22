@@ -11,11 +11,11 @@ export default function Tech_Top_Bar() {
 
     //navigation
     const navigation = useNavigation()
-    const kakaoPress = useCallback(() => navigation.navigate('kakao'), [])
-    const naverPress = useCallback(() => navigation.navigate('naver'), [])
-    const wooahanress = useCallback(() => navigation.navigate('wooahan'), [])
-    const dangeunPress = useCallback(() => navigation.navigate('dangeun'), [])
-    const linePress = useCallback(() => navigation.navigate('line'), [])
+    const kakaoPress = useCallback(() => navigation.navigate('카카오'), [])
+    const naverPress = useCallback(() => navigation.navigate('네이버'), [])
+    const wooahanress = useCallback(() => navigation.navigate('우아한형제들'), [])
+    const dangeunPress = useCallback(() => navigation.navigate('당근마켓'), [])
+    const linePress = useCallback(() => navigation.navigate('라인'), [])
   
   return(
     <View style={[styles.view]}>

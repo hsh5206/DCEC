@@ -1,25 +1,42 @@
 import React from 'react'
-import {createStackNavigator} from '@react-navigation/stack'
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {View, StyleSheet} from'react-native'
 
+import TopBar from '../screens/MainPage/TopBar'
+import BottomBar from '../screens/MainPage/BottomBar'
 
 import TechInfo_kakao from '../screens/MainPage/Board/TeckInfo/TechInfo_kakao'
 import TechInfo_naver from '../screens/MainPage/Board/TeckInfo/TechInfo_naver'
 import TechInfo_wooahan from '../screens/MainPage/Board/TeckInfo/TechInfo_wooahan'
 import TechInfo_dangeun from '../screens/MainPage/Board/TeckInfo/TechInfo_dangeun'
 import TechInfo_line from '../screens/MainPage/Board/TeckInfo/TechInfo_line'
-import Tech_Board from '../screens/MainPage/Board/TeckInfo/TechBoard_render'
 
-const Stack = createStackNavigator()
+const Tab = createMaterialTopTabNavigator();
 
 export default function StartNavigator(){
   return(
-    <Stack.Navigator>
-      <Stack.Screen name="techBoard" component={Tech_Board} options={{headerShown:false}}/>
-      <Stack.Screen name="kakao" component={TechInfo_kakao} options={{headerTitle:' ', headerBackTitle:' '}}/>
-      <Stack.Screen name="naver" component={TechInfo_naver} options={{headerTitle:' ', headerBackTitle:' '}}/>
-      <Stack.Screen name="wooahan" component={TechInfo_wooahan} options={{headerTitle:' ', headerBackTitle:' '}}/>
-      <Stack.Screen name="dangeun" component={TechInfo_dangeun} options={{headerTitle:' ', headerBackTitle:' '}}/>
-      <Stack.Screen name="line" component={TechInfo_line} options={{headerTitle:' ', headerBackTitle:' '}}/>
-    </Stack.Navigator>
+    <View style={{flex:1, backgroundColor:'white'}}>
+    <TopBar/>
+    <View style={styles.content}>
+    <Tab.Navigator>
+      
+      <Tab.Screen name="카카오" component={TechInfo_kakao} options={{}}/>
+      <Tab.Screen name="네이버" component={TechInfo_naver} options={{}}/>
+      <Tab.Screen name="우아한  형제들" component={TechInfo_wooahan} options={{}}/>
+      <Tab.Screen name="당근마켓" component={TechInfo_dangeun} options={{}}/>
+      <Tab.Screen name="라인" component={TechInfo_line} options={{}}/>
+    </Tab.Navigator>
+    </View >
+    <View style={{paddingBottom:'5%'}}>
+    <BottomBar/>
+    </View>
+      
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  content: {
+    flex:1,
+  }
+})

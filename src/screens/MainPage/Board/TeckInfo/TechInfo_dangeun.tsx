@@ -12,29 +12,34 @@ import {
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
 
+import TopBar from '../../TopBar'
+import Tech_Top_Bar from './Tech_Top_Bar'
+
 export default function Login() {
 
   const navigation = useNavigation()
   const TechPress = useCallback(() => navigation.navigate('TechItem'), [])
 
   return(
+
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <ScrollView>
         <View style={styles.content}>
           
-        <View style={{flex:1,paddingVertical:1}}>
+          <View style={{flex:1,paddingVertical:1}}>
       
-      <TouchableOpacity style={styles.view} onPress={TechPress}>
-        <View><Text style={{color:Colors.grey600}}>쿠팡</Text></View>
-        <View><Text>검색 영역 탐색을 위한 인덱싱 플랫폼의 변천사</Text></View>
-        <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.05.07</Text></View>
-      </TouchableOpacity>
+            <TouchableOpacity style={styles.view} onPress={TechPress}>
+              <View><Text style={{marginTop:10,color:Colors.grey600}}>쿠팡</Text></View>
+              <View><Text>검색 영역 탐색을 위한 인덱싱 플랫폼의 변천사</Text></View>
+              <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.05.07</Text></View>
+            </TouchableOpacity>
 
-    </View>
+          </View>
 
         </View>
       </ScrollView>
     </SafeAreaView>
+
   )
 }
 
@@ -42,7 +47,7 @@ const styles = StyleSheet.create({
   content: {
     flex:1,
     marginHorizontal:'5%',
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center'

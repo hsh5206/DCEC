@@ -10,6 +10,7 @@ import SettingNavigator from './SettingNavigator'
 import TechNavigator from './TechNavigator'
 import Baekjun_Ranking_Plus from '../screens/MainPage/Board/Baekjun/Baekjun_Ranking_Plus'
 import Github_Ranking_Plus from '../screens/MainPage/Board/Github/Github_Ranking_Plus'
+import RankNavigator from './RankNavigator'
 
 const Stack = createStackNavigator()
 
@@ -36,6 +37,11 @@ export default function StartNavigator(){
       <Stack.Screen
             name="TechNavigator"
             component={TechNavigator}
+            options={{headerShown: false}}
+      />
+      <Stack.Screen
+            name="RankNavigator"
+            component={RankNavigator}
             options={{headerShown: false}}
       />
     </Stack.Navigator>

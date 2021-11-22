@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: '2%',
     backgroundColor: '#52b9f1',
-    height:'10%',
-    paddingTop:'10%'
+    height:'11%',
+    paddingTop:'9%'
   },
   text: {
     fontSize: 20,

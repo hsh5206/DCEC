@@ -26,13 +26,13 @@ export default function Login() {
         <View style={{flex:1,paddingVertical:1}}>
 
       <TouchableOpacity style={styles.view} onPress={TechPress}>
-        <View><Text style={{color:Colors.grey600}}>우아한형제들</Text></View>
+        <View><Text style={{marginTop:10,color:Colors.grey600}}>우아한형제들</Text></View>
         <View><Text>우아한형제들 기획자 소개와 개발자와의 협업문화 인터뷰</Text></View>
         <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.07</Text></View>
       </TouchableOpacity>
  
       <TouchableOpacity style={styles.view} onPress={TechPress}>
-        <View><Text style={{color:Colors.grey600}}>우아한형제들</Text></View>
+        <View><Text style={{marginTop:10,color:Colors.grey600}}>우아한형제들</Text></View>
         <View><Text>우아한형제들 Developer Relations-Updated</Text></View>
         <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.04.28</Text></View>
       </TouchableOpacity>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   content: {
     flex:1,
     marginHorizontal:'5%',
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center'

@@ -16,6 +16,7 @@ export default function BottomBar() {
     const bellPress = useCallback(() => navigation.navigate('Nontification'), [])
     const accountPress = useCallback(() => navigation.navigate('SettingNavigator'), [])
     const TechInfoPress = useCallback(() => navigation.navigate('TechNavigator'), [])
+    const rankPress = useCallback(()=> navigation.navigate('RankNavigator'), [])
   
   return(
     <View style={[styles.viewmain]}>
@@ -26,7 +27,7 @@ export default function BottomBar() {
       <Icon name='account' size={iconSize} color={iconColor} onPress={accountPress}/>
     </View>
     <View style={[styles.view]}>
-      <Icon name='chart-bar' size={iconSize} color={iconColor} onPress={homePress}/>
+      <Icon name='chart-bar' size={iconSize} color={iconColor} onPress={rankPress}/>
       <Icon name='book-open-page-variant' size={iconSize} color={iconColor} onPress={TechInfoPress}/>
       <Icon name='chat' size={iconSize} color={iconColor} onPress={bellPress}/>
       <Icon name='cog-outline' size={iconSize} color={iconColor} onPress={accountPress}/>

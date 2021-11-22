@@ -19,16 +19,15 @@ export default function Login() {
           <Text style={{fontSize:20}}>알림</Text>
         </View>
       </View>
-      <ScrollView>
+      <ScrollView style={{paddingBottom:'5%'}}>
         <View style={styles.content}>
           <Text>내용없음</Text>
         </View>
-        <View style={styles.footer}>
-
-        </View>
+        
       </ScrollView>
-      
+      <View style={{paddingTop:'10%'}}>
       <BottomBar/>
+      </View>
     </SafeAreaView>
   )
 }
@@ -41,18 +40,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   content: {
-    height: 500,
+    height:700,
     marginHorizontal:'5%',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  footer: {
-    height: '20%',
-    marginHorizontal:'5%',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   centerView: {
     flex: 1,
