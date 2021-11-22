@@ -12,8 +12,7 @@ export default function Login() {
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <ScrollView style={styles.content}>
-        <Text style={{fontSize:15}}>첫 시작이 엊그제 같은데 어느새 사내 기술 세미나가 5회까지 진행이 되었습니다. 
-이번 Techtalk 다섯 번째 이야기는 카카오TV 백엔드 개편에 참여했던 크루들의 경험과 노하우를 공유하는 시간을 가졌습니다.{"\n"}</Text>
+        <Text style={{fontSize:18, fontWeight: 'bold'}}>제목임미다{"\n"}</Text>
         <Text style={{fontSize: 18, fontWeight:'bold'}}>크루들의 지식과 경험을 나눠 함께 성장해 가는 
         Techtalk 다 번째 이야기{"\n"}</Text>
         <Text style={{fontSize:15}}>

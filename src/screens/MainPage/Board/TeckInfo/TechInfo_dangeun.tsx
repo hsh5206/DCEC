@@ -6,14 +6,14 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  Alert
+  Image
 } from 'react-native'
 
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
 
+import Tech_TopBar from './Tech_Top_Bar'
 import TopBar from '../../TopBar'
-import Tech_Top_Bar from './Tech_Top_Bar'
 
 export default function Login() {
 
@@ -21,32 +21,60 @@ export default function Login() {
   const TechPress = useCallback(() => navigation.navigate('TechItem'), [])
 
   return(
-
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+      
       <ScrollView>
         <View style={styles.content}>
           
-          <View style={{flex:1,paddingVertical:1}}>
+        <View style={{flex:1,paddingVertical:1}}>
       
-            <TouchableOpacity style={styles.view} onPress={TechPress}>
-              <View><Text style={{marginTop:10,color:Colors.grey600}}>쿠팡</Text></View>
-              <View><Text>검색 영역 탐색을 위한 인덱싱 플랫폼의 변천사</Text></View>
-              <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.05.07</Text></View>
-            </TouchableOpacity>
-
+      <TouchableOpacity style={styles.view} onPress={TechPress}>
+        <View style={{flexDirection:'row'}}>
+        <Image style={styles.logo} source={require('../../../../assets/images/RN.png')}/>
+          <View>
+            <View><Text style={{marginTop:10,color:Colors.grey600}}>카카오</Text></View>
+            <View><Text>카카오 사내 기술 세미나 'Techtalk'- 다섯 번째 이야기</Text></View>
+            <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.08</Text></View>
           </View>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.view} onPress={TechPress}>
+        <View style={{flexDirection:'row'}}>
+        <Image style={styles.logo} source={require('../../../../assets/images/RN.png')}/>
+          <View>
+            <View><Text style={{marginTop:10,color:Colors.grey600}}>카카오</Text></View>
+            <View><Text>카카오 사내 기술 세미나 'Techtalk'- 네 번째 이야기</Text></View>
+            <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.08</Text></View>
+          </View>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.view} onPress={TechPress}>
+        <View style={{flexDirection:'row'}}>
+        <Image style={styles.logo} source={require('../../../../assets/images/RN.png')}/>
+          <View>
+            <View><Text style={{marginTop:10,color:Colors.grey600}}>카카오</Text></View>
+            <View><Text>카카오 박람회</Text></View>
+            <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.08</Text></View>
+          </View>
+        </View>
+      </TouchableOpacity>
+      
+      
+      
+    </View>
 
         </View>
       </ScrollView>
     </SafeAreaView>
-
   )
 }
 
 const styles = StyleSheet.create({
   content: {
     flex:1,
-    marginHorizontal:'5%',
+    marginHorizontal:'2%',
     backgroundColor: 'white',
     alignItems: 'center',
     flexDirection: 'row',
@@ -54,12 +82,19 @@ const styles = StyleSheet.create({
   },
   date:{
     flexDirection:'row',
-    justifyContent:'flex-end'
+    justifyContent:'flex-end',
+    width:'90%'
   },
   view: {
     flex:1,
     height:70,
-    marginVertical: 1,
     backgroundColor: 'white'
+  },
+  logo: {
+    width:60,
+    height:50,
+    borderRadius: 10,
+    marginTop: '1%',
+    marginRight: '2%',
   },
 })

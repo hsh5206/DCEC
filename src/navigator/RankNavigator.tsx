@@ -13,7 +13,7 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function StartNavigator(){
   return(
-    <View style={{flex:1, backgroundColor:'white'}}>
+    <View style={{flex:1, backgroundColor:'#52b9f1'}}>
     <TopBar/>
     <View style={styles.content}>
     <Tab.Navigator>
@@ -24,7 +24,7 @@ export default function StartNavigator(){
 
     </Tab.Navigator>
     </View >
-    <View style={{paddingBottom:'5%'}}>
+    <View style={{paddingBottom:'6%'}}>
     <BottomBar/>
     </View>
       
@@ -35,5 +35,6 @@ export default function StartNavigator(){
 const styles = StyleSheet.create({
   content: {
     flex:1,
+    paddingHorizontal:'1%'
   }
 })

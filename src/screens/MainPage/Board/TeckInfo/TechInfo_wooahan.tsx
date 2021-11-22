@@ -6,12 +6,14 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  Alert
+  Image
 } from 'react-native'
 
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
 
+import Tech_TopBar from './Tech_Top_Bar'
+import TopBar from '../../TopBar'
 
 export default function Login() {
 
@@ -20,22 +22,47 @@ export default function Login() {
 
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+      
       <ScrollView>
         <View style={styles.content}>
           
         <View style={{flex:1,paddingVertical:1}}>
+      
+      <TouchableOpacity style={styles.view} onPress={TechPress}>
+        <View style={{flexDirection:'row'}}>
+        <Image style={styles.logo} source={require('../../../../assets/images/RN.png')}/>
+          <View>
+            <View><Text style={{marginTop:10,color:Colors.grey600}}>카카오</Text></View>
+            <View><Text>카카오 사내 기술 세미나 'Techtalk'- 다섯 번째 이야기</Text></View>
+            <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.08</Text></View>
+          </View>
+        </View>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.view} onPress={TechPress}>
-        <View><Text style={{marginTop:10,color:Colors.grey600}}>우아한형제들</Text></View>
-        <View><Text>우아한형제들 기획자 소개와 개발자와의 협업문화 인터뷰</Text></View>
-        <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.07</Text></View>
+        <View style={{flexDirection:'row'}}>
+        <Image style={styles.logo} source={require('../../../../assets/images/RN.png')}/>
+          <View>
+            <View><Text style={{marginTop:10,color:Colors.grey600}}>카카오</Text></View>
+            <View><Text>카카오 사내 기술 세미나 'Techtalk'- 네 번째 이야기</Text></View>
+            <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.08</Text></View>
+          </View>
+        </View>
       </TouchableOpacity>
- 
+
       <TouchableOpacity style={styles.view} onPress={TechPress}>
-        <View><Text style={{marginTop:10,color:Colors.grey600}}>우아한형제들</Text></View>
-        <View><Text>우아한형제들 Developer Relations-Updated</Text></View>
-        <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.04.28</Text></View>
+        <View style={{flexDirection:'row'}}>
+        <Image style={styles.logo} source={require('../../../../assets/images/RN.png')}/>
+          <View>
+            <View><Text style={{marginTop:10,color:Colors.grey600}}>카카오</Text></View>
+            <View><Text>카카오 박람회</Text></View>
+            <View style={styles.date}><Text style={{color:Colors.grey600}}>2021.06.08</Text></View>
+          </View>
+        </View>
       </TouchableOpacity>
+      
+      
+      
     </View>
 
         </View>
@@ -47,7 +74,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   content: {
     flex:1,
-    marginHorizontal:'5%',
+    marginHorizontal:'2%',
     backgroundColor: 'white',
     alignItems: 'center',
     flexDirection: 'row',
@@ -55,12 +82,19 @@ const styles = StyleSheet.create({
   },
   date:{
     flexDirection:'row',
-    justifyContent:'flex-end'
+    justifyContent:'flex-end',
+    width:'90%'
   },
   view: {
     flex:1,
     height:70,
-    marginVertical: 1,
     backgroundColor: 'white'
+  },
+  logo: {
+    width:60,
+    height:50,
+    borderRadius: 10,
+    marginTop: '1%',
+    marginRight: '2%',
   },
 })

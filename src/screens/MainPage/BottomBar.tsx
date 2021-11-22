@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around', //배치 flex-start,flex-end,center,space-around,space-between,space-evenly
     padding: 10,
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
+    marginHorizontal: '1%'
   },
   text: {
     fontSize: 20,
