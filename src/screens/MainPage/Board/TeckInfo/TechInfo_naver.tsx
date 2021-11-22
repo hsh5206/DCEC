@@ -12,7 +12,6 @@ import {
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
 
-import TopBar from './Tech_Top_Bar'
 
 export default function Login() {
 
@@ -21,7 +20,6 @@ export default function Login() {
 
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-      <TopBar/>
       <ScrollView>
         <View style={styles.content}>
           
