@@ -20,7 +20,7 @@ export default function Login() {
   const BackjunPress = useCallback(() => navigation.navigate('Baekjun'), [])
   const GithubPress = useCallback(() => navigation.navigate('Github'), [])
   const NoticePress = useCallback(() => navigation.navigate('Notice'), [])
-  const TechInfoPress = useCallback(() => navigation.navigate('TechInfo'), [])
+  const TechInfoPress = useCallback(() => navigation.navigate('TechNavigator'), [])
   const ContInfoPress = useCallback(() => navigation.navigate('ContInfo'), [])
 
   return(

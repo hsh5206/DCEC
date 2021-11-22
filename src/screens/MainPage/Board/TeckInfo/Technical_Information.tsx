@@ -6,12 +6,13 @@ import {
   ScrollView,
   Text
 } from 'react-native'
-import BottomBar from '../../BottomBar'
+import TopBar from './Tech_Top_Bar'
 import TeckInfoList from './TeckInfoList'
 
 export default function Login() {
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+      <TopBar/>
       <ScrollView>
         <View style={styles.content}>
           <TeckInfoList/>
