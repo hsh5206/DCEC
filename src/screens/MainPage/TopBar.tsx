@@ -9,9 +9,9 @@ export default function TopBar() {
 
   return(
     <View style={[styles.view]}>
-      <Image style={styles.logo} source={require('../../assets/images/DCEC_logo_v1.png')}/>
+      <Image style={styles.logo} source={require('../../assets/images/DCEC_logo_v3.png')}/>
       <View style={styles.centerView}></View>
-      <Icon name="text-search" size={30} color={Colors.grey400} onPress={searchPress}/>
+      <Icon name="text-search" size={30} color='white' onPress={searchPress}/>
     </View>
   )
 }
@@ -21,8 +21,10 @@ const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: '4%',
-    backgroundColor: Colors.white
+    paddingHorizontal: '2%',
+    backgroundColor: '#52b9f1',
+    height:'10%',
+    paddingTop:'10%'
   },
   text: {
     fontSize: 20,
@@ -30,8 +32,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     width:100,
-    height:40,
-    borderRadius: 10
+    height:50,
+    borderRadius: 10,
+    marginBottom: '1%'
   },
   centerView: {
     flex: 1

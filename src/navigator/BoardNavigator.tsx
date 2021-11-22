@@ -16,11 +16,11 @@ export default function StartNavigator(){
   return(
     <Stack.Navigator>
       <Stack.Screen name="Board" component={Board} options={{headerShown:false}}/>
-      <Stack.Screen name="Baekjun" component={Baekjun} options={{title: "백준"}}/>
-      <Stack.Screen name="Github" component={Github} options={{title: "깃허브"}}/>
-      <Stack.Screen name="Notice" component={Notice} options={{title: "공지사항"}}/>
-      <Stack.Screen name="TechInfo" component={TechnicalInfo} options={{title: "기술정보"}}/>
-      <Stack.Screen name="ContInfo" component={ContestInfo} options={{title: "공모전"}}/>
+      <Stack.Screen name="Baekjun" component={Baekjun} options={{title: "백준", headerBackTitle:'게시판'}}/>
+      <Stack.Screen name="Github" component={Github} options={{title: "깃허브", headerBackTitle:'게시판'}}/>
+      <Stack.Screen name="Notice" component={Notice} options={{title: "공지사항", headerBackTitle:'게시판'}}/>
+      <Stack.Screen name="TechInfo" component={TechnicalInfo} options={{title: "기술정보", headerBackTitle:'게시판'}}/>
+      <Stack.Screen name="ContInfo" component={ContestInfo} options={{title: "공모전", headerBackTitle:'게시판'}}/>
       <Stack.Screen name="NoticeItem" component={NoticeItem} options={{title: ""}}/>
       <Stack.Screen name="TechItem" component={TechItem} options={{title: ""}}/>
       <Stack.Screen name="ContWebView" component={ContWebView} options={{title: ""}}/>

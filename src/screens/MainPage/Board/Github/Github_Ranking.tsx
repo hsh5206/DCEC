@@ -7,14 +7,14 @@ export default function GithubRank() {
 
   const navigation = useNavigation()
   const profilePress = useCallback(() => {navigation.navigate('MainNavigator'), navigation.navigate('Profle')}, [])
-
+  const plusPress = useCallback(()=> {navigation.navigate('MainNavigator'), navigation.navigate('Github_Rank')}, [])
 
   return(
     <View style={[styles.view]}>
       <View style={styles.rankView}>
         <Text style={styles.title}>깃허브 랭킹</Text>
         <Text style={styles.myrank}>나의 랭킹 : 2</Text>
-        <TouchableOpacity style={{marginTop:8,marginLeft:85}}>
+        <TouchableOpacity style={{marginTop:8,marginLeft:85}} onPress={plusPress}>
           <Text style={{color:Colors.grey500}}> + 더보기 </Text>
         </TouchableOpacity>
       </View>

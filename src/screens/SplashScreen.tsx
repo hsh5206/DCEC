@@ -18,12 +18,12 @@ const SplashScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/DCEC_logo_v2.png')}
-        style={{width: '55%', resizeMode: 'contain', margin: 30}}
+        source={require('../assets/images/DCEC_logo_loading.png')}
+        style={{width: '55%', resizeMode: 'contain'}}
       />
       <ActivityIndicator
         animating={animating}
-        color="#6990F7"
+        color="#e6e6e6"
         size="large"
         style={styles.activityIndicator}
       />
@@ -35,10 +35,10 @@ export default SplashScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#52b9f1',
   },
   activityIndicator: {
     alignItems: 'center',

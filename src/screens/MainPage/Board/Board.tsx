@@ -13,13 +13,15 @@ import Board_Content from './Board_Content'
 export default function Login() {
 
   return(
-    <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+    <View style={{flex:1, backgroundColor:'white'}}>
       <TopBar/>
       <View style={styles.content}>
         <Board_Content/>
       </View>
-      <BottomBar/>
-    </SafeAreaView>
+      <View style={{paddingBottom:'5%'}}>
+        <BottomBar/>
+      </View>
+    </View>
   )
 }
 
