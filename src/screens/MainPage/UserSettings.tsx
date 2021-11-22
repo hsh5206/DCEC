@@ -20,6 +20,7 @@ export default function Login() {
   const withdrawPress = useCallback(()=> navigation.navigate('Withdraw'),[])
   const logoutPress = useCallback(()=> {Alert.alert("로그아웃 완료"), navigation.navigate('Login')},[])
   const passwordChange = useCallback(()=> navigation.navigate('PassChange'),[])
+  const Account = useCallback(()=> navigation.navigate('Account'),[])
 
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
@@ -44,11 +45,13 @@ export default function Login() {
         </View>
 
         <View style={[styles.content,{height:160}]}>
-          <View>
-            <Text style={{fontSize:23, fontWeight:'bold', marginVertical:10}}>연동 계정 관리</Text>
-            <Text style={{fontSize:20, marginVertical:10}}>백준</Text>
-            <Text style={{fontSize:20, marginVertical:10}}>깃허브</Text>
-          </View>
+          <TouchableOpacity onPress={Account}>
+            <View>
+              <Text style={{fontSize:23, fontWeight:'bold', marginVertical:10}}>연동 계정 관리</Text>
+              <Text style={{fontSize:20, marginVertical:10}}>백준</Text>
+              <Text style={{fontSize:20, marginVertical:10}}>깃허브</Text>
+            </View>
+          </TouchableOpacity>
         </View>
 
         <View style={[styles.content,{height:200}]}>

@@ -14,9 +14,10 @@ export default function BottomBar() {
     const homePress = useCallback(() => navigation.navigate('Home'), [])
     const tablePress = useCallback(() => navigation.navigate('BoardNavigator'), [])
     const bellPress = useCallback(() => navigation.navigate('Nontification'), [])
-    const accountPress = useCallback(() => navigation.navigate('SettingNavigator'), [])
+    const settingPress = useCallback(() => navigation.navigate('SettingNavigator'), [])
     const TechInfoPress = useCallback(() => navigation.navigate('TechNavigator'), [])
     const rankPress = useCallback(()=> navigation.navigate('RankNavigator'), [])
+    const accountPress = useCallback(() => navigation.navigate('Account'), [])
   
   return(
     <View style={[styles.viewmain]}>
@@ -24,13 +25,13 @@ export default function BottomBar() {
       <Icon name='home' size={iconSize} color={iconColor} onPress={homePress}/>
       <Icon name='table' size={iconSize} color={iconColor} onPress={tablePress}/>
       <Icon name='bell' size={iconSize} color={iconColor} onPress={bellPress}/>
-      <Icon name='account' size={iconSize} color={iconColor} onPress={accountPress}/>
+      <Icon name='cog-outline' size={iconSize} color={iconColor} onPress={settingPress}/>
     </View>
     <View style={[styles.view]}>
       <Icon name='chart-bar' size={iconSize} color={iconColor} onPress={rankPress}/>
       <Icon name='book-open-page-variant' size={iconSize} color={iconColor} onPress={TechInfoPress}/>
       <Icon name='chat' size={iconSize} color={iconColor} onPress={bellPress}/>
-      <Icon name='cog-outline' size={iconSize} color={iconColor} onPress={accountPress}/>
+      <Icon name='account' size={iconSize} color={iconColor} onPress={accountPress}/>
     </View>
     </View>
   )
