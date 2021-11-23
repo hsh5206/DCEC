@@ -45,22 +45,26 @@ export default function Login() {
   }, [])
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white', alignItems:'center',}}>
+    <SafeAreaView
+      style={{flex: 1, backgroundColor: 'white', alignItems: 'center'}}>
       <FlatList
         data={techInfos}
         renderItem={({item}) => (
           <TouchableOpacity
             style={[styles.card]}
             onPress={TechPress(item.link)}>
-              <View style={{alignItems:'center', paddingVertical:'5%'}}>
-            <View>
-              <Image style={styles.image} source={{uri: item.imageUrl}} />
-            </View>
-            <View style={{width:'95%', paddingLeft:'3%'}}>
-              <Text style={{fontSize:16}} numberOfLines={2} ellipsizeMode="tail">
-                {item.title}
-              </Text>
-            </View>
+            <View style={{alignItems: 'center', paddingVertical: '5%'}}>
+              <View>
+                <Image style={styles.image} source={{uri: item.imageUrl}} />
+              </View>
+              <View style={{width: '95%', paddingLeft: '3%'}}>
+                <Text
+                  style={{fontSize: 16}}
+                  numberOfLines={2}
+                  ellipsizeMode="tail">
+                  {item.title}
+                </Text>
+              </View>
             </View>
 
             {/* <View>
@@ -113,13 +117,12 @@ const styles = StyleSheet.create({
   image: {
     width: 160,
     height: 120,
-    borderRadius:20
+    borderRadius: 20,
   },
   card: {
     marginHorizontal: '1%',
     marginVertical: '3%',
     flexBasis: '45%',
-    borderRadius:20,
-
+    borderRadius: 20,
   },
 })
