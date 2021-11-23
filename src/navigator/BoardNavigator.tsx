@@ -23,10 +23,10 @@ export default function StartNavigator(){
       <Stack.Screen name="ContInfo" component={ContestInfo} options={{title: "공모전", headerBackTitle:'게시판'}}/>
       <Stack.Screen name="NoticeItem" component={NoticeItem} options={{title: ""}}/>
       <Stack.Screen name="TechItem" component={TechItem} options={{title: "", headerBackTitle:' '}}/>
-      <Stack.Screen name="ContWebView" component={ContWebView} options={{title: ""}}/>
+      <Stack.Screen name="ContWebView" component={ContWebView} options={{title: "", headerBackTitle:'DCEC'}}/>
 
       <Stack.Screen
-            name="TechNavigator"
+            name="TechNavigator" 
             component={TechNavigator}
             options={{headerShown: false}}
       />

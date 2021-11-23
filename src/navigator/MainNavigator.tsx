@@ -7,6 +7,7 @@ import UserSettings from '../screens/MainPage/UserSettings'
 import Account from '../screens/Settings/Account'
 import SeeBaek from '../screens/Settings/SeeBaek'
 import SeeGit from '../screens/Settings/SeeGit'
+import ContWebView from '../screens/MainPage/Board/ContestInfo/Contest_Webview'
 
 import Profile from '../screens/Profile'
 import BoardNavigator from './BoardNavigator'
@@ -26,6 +27,7 @@ export default function StartNavigator(){
       <Stack.Screen name="Account" component={Account} options={{title:"연동계정 관리", headerBackTitle: ' '}}/>
       <Stack.Screen name="SeeBaek" component={SeeBaek} options={{title: "백준 문제 조회", headerBackTitle:' '}}/>
       <Stack.Screen name="SeeGit" component={SeeGit} options={{title: "깃허브 레포지터리 조회", headerBackTitle:' '}}/>
+      <Stack.Screen name="ContWebView" component={ContWebView} options={{title: "",headerBackTitle:'DCEC'}}/>
 
       <Stack.Screen
             name="BoardNavigator"
