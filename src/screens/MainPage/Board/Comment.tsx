@@ -7,21 +7,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const iconSize = 18
 
-<<<<<<< HEAD
-export default function Login() {
-
-  const onPress_chat = () => {alert("Pressed")}
-
-=======
 export default function Login(props) {
   const [info, setinfo] = useState(props.item)
   const onPress_chat = () => {
     alert('Pressed')
   }
-  const onPress_heart = () => {
-    alert('Pressed')
-  }
->>>>>>> b16f01434d45c9cce42e7c3e7197e28a0e7feb34
+
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={styles.header}>
@@ -45,15 +36,6 @@ export default function Login(props) {
               <Icon name="chat-outline" size={iconSize} color="#52b9f1" />
             </TouchableOpacity>
             <Text> {/*필요한 빈공간 */} </Text>
-<<<<<<< HEAD
-            
-=======
-            <TouchableOpacity
-              style={{flexDirection: 'row'}}
-              onPress={onPress_heart}>
-              <Icon name="heart-outline" size={iconSize} color="red" />
-            </TouchableOpacity>
->>>>>>> b16f01434d45c9cce42e7c3e7197e28a0e7feb34
           </View>
         </View>
         <View style={{height: '80%', justifyContent: 'center'}}>

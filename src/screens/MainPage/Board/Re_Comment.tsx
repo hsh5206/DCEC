@@ -37,19 +37,11 @@ export default function Login(props) {
               </Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <TouchableOpacity
-                style={{flexDirection: 'row'}}
-                onPress={onPress_heart}>
-                <Icon name="heart-outline" size={iconSize} color="red" />
-              </TouchableOpacity>
             </View>
           </View>
-<<<<<<< HEAD
-=======
           <View style={{height: '80%', justifyContent: 'center'}}>
             <Text style={styles.comment}> {info.content} </Text>
           </View>
->>>>>>> b16f01434d45c9cce42e7c3e7197e28a0e7feb34
         </View>
       </View>
     </View>

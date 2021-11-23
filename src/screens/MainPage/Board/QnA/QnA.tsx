@@ -75,37 +75,21 @@ export default function Login() {
                         </View>
                       </View>
                       <View style={styles.date}>
-<<<<<<< HEAD
-                        <Text style={{color: Colors.grey600}}>게시 날짜 / {item.createBy} </Text>
-                        <View style={{flexDirection:'row'}}>
-                          <Icon name='chat-outline' size={iconSize} color='#52b9f1'/>
-                          <Text style={{color: Colors.grey600}}>댓글수   </Text>
-                          <Icon name='eye-outline' size={iconSize} color='black'/>
-                          <Text style={{color: Colors.grey600}}>조회수</Text>
-                          
-=======
+                      <View style={{flexDirection:'row'}}>
                         <Text style={{color: Colors.grey600}}>
                           {moment(item.createTime).format('MM.DD')} |
                           {item.createBy}
                         </Text>
+                        </View>
                         <View style={{flexDirection: 'row'}}>
-                          <Icon
-                            name="heart-outline"
-                            size={iconSize}
-                            color="red"
-                          />
+                          <Icon name='chat-outline' size={iconSize} color='#52b9f1'/>
                           <Text style={{color: Colors.grey600}}>
-                            {item.viewCount}{' '}
+                            {item.commentNum}{' '}
                           </Text>
-                          <Icon
-                            name="chat-outline"
-                            size={iconSize}
-                            color="#52b9f1"
-                          />
+                          <Icon name='eye-outline' size={iconSize} color='black'/>
                           <Text style={{color: Colors.grey600}}>
-                            {item.commentNum}
+                            {item.viewCount}
                           </Text>
->>>>>>> b16f01434d45c9cce42e7c3e7197e28a0e7feb34
                         </View>
                       </View>
                     </View>
