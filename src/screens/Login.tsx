@@ -32,7 +32,7 @@ export default function Login() {
     }
     Axios.post(`http://15.164.68.127:8080/api/member/login`, dataToSubmit).then(res => {
       if (res.status === 200) {
-        console.log(res.data.authorization)
+        // console.log(res.data.authorization)
         settoken(res.data.authorization)
         dispatch(L.loginAction({id,password,token:res.data.authorization}))
         navigation.navigate('MainNavigator')
