@@ -11,8 +11,9 @@ import ContestInfo from '../screens/MainPage/Board/ContestInfo/Contest_Informati
 import NoticeItem from '../screens/MainPage/Board/Notice/NoticeItem'
 import TechItem from '../screens/MainPage/Board/TeckInfo/TechItem'
 import ContWebView from '../screens/MainPage/Board/ContestInfo/Contest_Webview'
-import QnA from '../screens/MainPage/Board/QnA'
-import QnA_Board from '../screens/MainPage/Board/QnA_Board'
+import QnA from '../screens/MainPage/Board/QnA/QnA'
+import QnA_Board from '../screens/MainPage/Board/QnA/QnA_Board'
+import Write from '../screens/MainPage/Board/Write'
 
 import TopBar from '../screens/MainPage/TopBar'
 
@@ -36,6 +37,8 @@ export default function StartNavigator(){
       <Stack.Screen name="NoticeItem" component={NoticeItem} options={{title: "", headerStatusBarHeight:1}}/>
       <Stack.Screen name="TechItem" component={TechItem} options={{title: "", headerBackTitle:' ', headerStatusBarHeight:1}}/>
       <Stack.Screen name="ContWebView" component={ContWebView} options={{title: "", headerBackTitle:'DCEC', headerStatusBarHeight:1}}/>
+
+      <Stack.Screen name="Write" component={Write} options={{title: " ", headerBackTitle:' ', headerTransparent: true, headerStatusBarHeight:1}}/>
 
       <Stack.Screen
             name="TechNavigator" 

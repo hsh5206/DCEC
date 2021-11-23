@@ -13,8 +13,8 @@ import {
 
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
-import type {AppState} from '../../../store'
-import * as L from '../../../store/login'
+import type {AppState} from '../../../../store'
+import * as L from '../../../../store/login'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
@@ -33,6 +33,10 @@ export default function Login() {
      () => navigation.navigate('QnA_Board', {}),
     [],
   )
+  const writingPress = useCallback(
+    () => navigation.navigate('Write', {}),
+   [],
+ )
 
   //login
   const login = useSelector<AppState, L.State>(state => state.login)
@@ -48,6 +52,7 @@ export default function Login() {
   }, [])
 
   return (
+    <>
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView>
         <View style={styles.content}>
@@ -85,6 +90,13 @@ export default function Login() {
         </View>
       </ScrollView>
     </SafeAreaView>
+    <TouchableOpacity onPress={writingPress}>
+      <View style={[styles.absoluteView]}>
+        <Icon name="feather" size={20} color='#52b9f1'/>
+        <Text style={{fontSize:16, fontWeight:'bold', color:'black'}}> 글 쓰기</Text>
+      </View>
+    </TouchableOpacity>
+    </>
   )
 }
 
@@ -109,4 +121,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginBottom: 1,
   },
+  absoluteView:{
+    width: 90,
+    backgroundColor: Colors.grey50,
+    flexDirection:'row',
+    position: 'absolute',
+    right: 150,
+    bottom: 35,
+    padding: 10,
+    borderRadius: 15,
+    borderColor: Colors.grey300,
+    borderWidth: 2,
+    justifyContent:'center'
+  }
 })

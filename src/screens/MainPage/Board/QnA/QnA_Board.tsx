@@ -2,10 +2,10 @@ import React from 'react';
 import {StyleSheet, ScrollView, View, Text, TouchableOpacity} from 'react-native';
 import {Colors} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import BottomChat from './Bottom_chat'
+import BottomChat from '../Bottom_chat'
 
-import Comment from './Comment'
-import ReComment from './Re_Comment'
+import Comment from '../Comment'
+import ReComment from '../Re_Comment'
 
 const iconSize = 20
 
@@ -77,5 +77,5 @@ const styles = StyleSheet.create({
   comment: {
     flex: 1,
     height:55
-  }
+  },
 });
