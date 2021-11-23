@@ -9,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   Image,
+  FlatList,
 } from 'react-native'
 
 import {Colors} from 'react-native-paper'
@@ -44,39 +45,34 @@ export default function Login() {
   }, [])
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <ScrollView>
-        <View style={styles.content}>
-          <View style={{flex: 1, paddingVertical: 1}}>
-            {techInfos.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  style={styles.view}
-                  onPress={TechPress(item.link)}>
-                  <View style={{flexDirection: 'row'}}>
-                    <Image style={styles.logo} source={{uri: item.imageUrl}} />
-                    <View>
-                      <View>
-                        <Text style={{marginTop: 10, color: Colors.grey600}}>
-                          {item.createBy}
-                        </Text>
-                      </View>
-                      <View style={{width:'90%'}}>
-                        <Text numberOfLines={1} ellipsizeMode="tail">
-                          {item.title}
-                        </Text>
-                      </View>
-                      <View style={styles.date}>
-                        <Text style={{color: Colors.grey600}}>2021.06.08</Text>
-                      </View>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              )
-            })}
-          </View>
-        </View>
-      </ScrollView>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white', alignItems:'center',}}>
+      <FlatList
+        data={techInfos}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            style={[styles.card]}
+            onPress={TechPress(item.link)}>
+              <View style={{alignItems:'center', paddingVertical:'5%'}}>
+            <View>
+              <Image style={styles.image} source={{uri: item.imageUrl}} />
+            </View>
+            <View style={{width:'95%', paddingLeft:'3%'}}>
+              <Text style={{fontSize:16}} numberOfLines={2} ellipsizeMode="tail">
+                {item.title}
+              </Text>
+            </View>
+            </View>
+
+            {/* <View>
+              <Text numberOfLines={2} ellipsizeMode="tail">
+                {item.description}
+              </Text>
+            </View> */}
+          </TouchableOpacity>
+        )}
+        columnWrapperStyle={styles.imageRow}
+        numColumns={2}
+      />
     </SafeAreaView>
   )
 }
@@ -106,5 +102,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: '1%',
     marginRight: '2%',
+  },
+  /* 추가 */
+  wrap: {
+    flex: 1,
+  },
+  imageRow: {
+    justifyContent: 'space-evenly',
+  },
+  image: {
+    width: 160,
+    height: 120,
+    borderRadius:20
+  },
+  card: {
+    marginHorizontal: '1%',
+    marginVertical: '3%',
+    flexBasis: '45%',
+    borderRadius:20,
+
   },
 })
