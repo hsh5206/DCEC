@@ -46,7 +46,9 @@ export default function NoticeList() {
               </Text>
             </View>
             <View>
-              <Text>{item.title}</Text>
+              <Text numberOfLines={1} ellipsizeMode="tail">
+                {item.title}
+              </Text>
             </View>
             <View style={styles.date}>
               <Text style={{color: Colors.grey600}}>{item.createdBy}</Text>
@@ -72,6 +74,6 @@ const styles = StyleSheet.create({
   },
   date: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
 })

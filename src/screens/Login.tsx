@@ -34,7 +34,7 @@ export default function Login() {
       if (res.status === 200) {
         console.log(res.data.authorization)
         settoken(res.data.authorization)
-        dispatch(L.loginAction({id,password,token}))
+        dispatch(L.loginAction({id,password,token:res.data.authorization}))
         navigation.navigate('MainNavigator')
       }
     })

@@ -1,4 +1,6 @@
-import React,{useCallback} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
+import Axios from 'axios'
+import {useSelector} from 'react-redux'
 import {
   StyleSheet,
   SafeAreaView,
@@ -6,22 +8,36 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  Alert
+  Alert,
 } from 'react-native'
 
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
+import type {AppState} from '../../../../store'
+import * as L from '../../../../store/login'
 
 import TopBar from '../../TopBar'
 
 export default function Login() {
-
+  const [rankInfos, setrankInfos] = useState([])
   const navigation = useNavigation()
   const TechPress = useCallback(() => navigation.navigate('TechItem'), [])
 
-  return(
+  //login
+  const login = useSelector<AppState, L.State>(state => state.login)
+  const {loggedIn, loggedUser} = login
 
-    <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+  useEffect(() => {
+    Axios.get(`http://15.164.68.127:8080/api/user/rank/git`, {
+      headers: {Authorization: loggedUser.token},
+    }).then(res => {
+      // console.log(res.data.content)
+      setrankInfos(res.data)
+    })
+  }, [])
+
+  return (
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <View style={[styles.head]}>
         <Text style={[styles.headText]}>랭킹</Text>
         <Text style={[styles.headText]}>ID</Text>
@@ -32,40 +48,26 @@ export default function Login() {
 
       <ScrollView>
         <View style={styles.content}>
-          
-        <View style={{flex:1}}>
-          <TouchableOpacity style={styles.view} onPress={TechPress}>
-          <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
-            <Text>랭킹</Text><Text>ID</Text><Text>깃허브ID</Text><Text>주간 커밋</Text><Text>총 커밋</Text>
+          <View style={{flex: 1}}>
+            {rankInfos !== [] &&
+              rankInfos.map((item, index) => {
+                return (
+                  <TouchableOpacity style={styles.view} onPress={TechPress}>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-around',
+                      }}>
+                      <Text>{index + 1}</Text>
+                      <Text>{item.memberId}</Text>
+                      <Text>{item.githubId}</Text>
+                      <Text>{item.week}</Text>
+                      <Text>{item.total}</Text>
+                    </View>
+                  </TouchableOpacity>
+                )
+              })}
           </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.view} onPress={TechPress}>
-          <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
-          <Text>랭킹</Text><Text>ID</Text><Text>깃허브ID</Text><Text>주간 커밋</Text><Text>총 커밋</Text>
-          </View>
-          </TouchableOpacity>
-    
-          <TouchableOpacity style={styles.view} onPress={TechPress}>
-          <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
-          <Text>랭킹</Text><Text>ID</Text><Text>깃허브ID</Text><Text>주간 커밋</Text><Text>총 커밋</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.view} onPress={TechPress}>
-          <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
-          <Text>랭킹</Text><Text>ID</Text><Text>깃허브ID</Text><Text>주간 커밋</Text><Text>총 커밋</Text>
-          </View>
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.view} onPress={TechPress}>
-          <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
-          <Text>랭킹</Text><Text>ID</Text><Text>깃허브ID</Text><Text>주간 커밋</Text><Text>총 커밋</Text>
-          </View>
-          </TouchableOpacity>
-
-          </View>
-
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -73,35 +75,35 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-  head:{
+  head: {
     flexDirection: 'row',
-    justifyContent:'space-around',
-    backgroundColor:'#52b9f1',
-    alignItems:'center',
-    height:'6%'
+    justifyContent: 'space-around',
+    backgroundColor: '#52b9f1',
+    alignItems: 'center',
+    height: '6%',
   },
-  headText:{
-    fontSize:17,
-    color:'white',
-    fontWeight:'700'
+  headText: {
+    fontSize: 17,
+    color: 'white',
+    fontWeight: '700',
   },
   content: {
-    flex:1,
-    marginHorizontal:'1%',
+    flex: 1,
+    marginHorizontal: '1%',
     backgroundColor: 'grey',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  date:{
-    flexDirection:'row',
-    justifyContent:'flex-end'
+  date: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
   view: {
-    flex:1,
-    height:60,
+    flex: 1,
+    height: 60,
     marginTop: 1,
     backgroundColor: 'white',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
 })

@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
   },
   date: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
 })

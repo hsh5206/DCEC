@@ -8,7 +8,7 @@ export type User = {
 
 export type State = {
   loggedIn: boolean
-  logggedUser: User
+  loggedUser: User
 }
 
 export type LogoutAction = Action<'logout'>
