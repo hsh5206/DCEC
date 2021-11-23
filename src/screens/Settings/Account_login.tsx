@@ -10,12 +10,14 @@ import {
   Alert
 } from 'react-native'
 import {Colors} from 'react-native-paper'
-
-const Baek_onPress = () => {Alert.alert("백준 조회")}
-const Git_onPress = () => {Alert.alert("깃허브 조회")}
+import {useNavigation} from '@react-navigation/native'
 
 
 export default function Login() {
+
+const navigation = useNavigation()
+const Baek_onPress = useCallback(() => navigation.navigate('SeeBaek'),[])
+const Git_onPress = useCallback(() => navigation.navigate('SeeGit'),[])
 
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
@@ -36,7 +38,7 @@ export default function Login() {
             <View style={{width:'82%', height:'15%',flexDirection:'row',justifyContent:'space-between'}}>
               <Text style={{fontSize:23, fontWeight:'bold', marginVertical:3}}>백준</Text>
               <TouchableOpacity style={[styles.loginButton]}>
-                <Text style={{color:'#52b9f1', fontSize:15, fontWeight:'600'}} onPress={Baek_onPress}>조회</Text>
+                <Text style={{color:'#52b9f1', fontSize:15, fontWeight:'600'}} onPress={Baek_onPress}>문제 조회</Text>
               </TouchableOpacity>
             </View>
 
@@ -62,8 +64,8 @@ export default function Login() {
           <View>
           <View style={{width:'84%', height:'15%',flexDirection:'row',justifyContent:'space-between'}}>
               <Text style={{fontSize:23, fontWeight:'bold', marginVertical:3}}>깃허브</Text>
-              <TouchableOpacity style={[styles.loginButton]}>
-                <Text style={{color:'#52b9f1', fontSize:15, fontWeight:'600'}} onPress={Git_onPress}>조회</Text>
+              <TouchableOpacity style={[styles.loginButton,{height:'100%'}]}>
+                <Text style={{color:'#52b9f1', fontSize:15, fontWeight:'600'}} onPress={Git_onPress}>레포지터리 조회</Text>
               </TouchableOpacity>
             </View>
 

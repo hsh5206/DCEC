@@ -4,14 +4,14 @@ import Home from '../screens/MainPage/Home'
 import Board from '../screens/MainPage/Board/Board'
 import Nontification from '../screens/MainPage/Nontification'
 import UserSettings from '../screens/MainPage/UserSettings'
-
 import Account from '../screens/Settings/Account'
+import SeeBaek from '../screens/Settings/SeeBaek'
+import SeeGit from '../screens/Settings/SeeGit'
 
 import Profile from '../screens/Profile'
 import BoardNavigator from './BoardNavigator'
 import SettingNavigator from './SettingNavigator'
 import TechNavigator from './TechNavigator'
-
 import RankNavigator from './RankNavigator'
 
 const Stack = createStackNavigator()
@@ -23,7 +23,9 @@ export default function StartNavigator(){
       <Stack.Screen name="Board" component={Board} options={{headerShown: false}}/>
       <Stack.Screen name="Nontification" component={Nontification} options={{headerShown: false}}/>
       <Stack.Screen name="UserSettings" component={UserSettings} options={{title:"내정보"}}/>
-      <Stack.Screen name="Account" component={Account} options={{title:"연동 계정관리", headerBackTitle:' '}}/>
+      <Stack.Screen name="Account" component={Account} options={{title:"연동계정 관리", headerBackTitle: ' '}}/>
+      <Stack.Screen name="SeeBaek" component={SeeBaek} options={{title: "백준 문제 조회", headerBackTitle:' '}}/>
+      <Stack.Screen name="SeeGit" component={SeeGit} options={{title: "깃허브 레포지터리 조회", headerBackTitle:' '}}/>
 
       <Stack.Screen
             name="BoardNavigator"
