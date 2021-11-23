@@ -16,7 +16,6 @@ const Tab = createMaterialTopTabNavigator();
 export default function StartNavigator(){
   return(
     <View style={{flex:1, backgroundColor:'white'}}>
-    <TopBar/>
     <View style={styles.content}>
     <Tab.Navigator>
       

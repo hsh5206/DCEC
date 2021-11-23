@@ -15,9 +15,6 @@ export default function Login() {
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <View style={styles.header}>
-        <View style={styles.centerView}>
-          <Text style={{fontSize:20}}>알림</Text>
-        </View>
       </View>
       <ScrollView style={{paddingBottom:'5%'}}>
         <View style={styles.content}>
@@ -35,7 +32,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   header: {
     height: '7%',
-    backgroundColor:'green',
+    backgroundColor:'white',
     flexDirection: 'row',
     justifyContent: 'center'
   },

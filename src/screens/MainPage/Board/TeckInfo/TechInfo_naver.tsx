@@ -60,10 +60,12 @@ export default function Login() {
                         <Text style={{marginTop: 10, color: Colors.grey600}}>
                           {item.createBy}
                         </Text>
-                      </View>
+                      </View >
+                      <View style={{width:'90%'}}>
                       <Text numberOfLines={1} ellipsizeMode="tail">
                         {item.title}
                       </Text>
+                      </View>
                       <View style={styles.date}>
                         <Text style={{color: Colors.grey600}}>2021.06.08</Text>
                       </View>

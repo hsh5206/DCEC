@@ -58,7 +58,7 @@ export default function Login() {
                           {item.createBy}
                         </Text>
                       </View>
-                      <View>
+                      <View style={{width:'90%'}}>
                         <Text numberOfLines={1} ellipsizeMode="tail">
                           {item.title}
                         </Text>

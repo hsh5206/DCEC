@@ -22,7 +22,7 @@ export default function StartNavigator(){
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
       <Stack.Screen name="Board" component={Board} options={{headerShown: false}}/>
-      <Stack.Screen name="Nontification" component={Nontification} options={{headerShown: false}}/>
+      <Stack.Screen name="Nontification" component={Nontification} options={{title:" 알림 ", headerBackTitle: ' '}}/>
       <Stack.Screen name="UserSettings" component={UserSettings} options={{title:"내정보"}}/>
       <Stack.Screen name="Account" component={Account} options={{title:"연동계정 관리", headerBackTitle: ' '}}/>
       <Stack.Screen name="SeeBaek" component={SeeBaek} options={{title: "백준 문제 조회", headerBackTitle:' '}}/>

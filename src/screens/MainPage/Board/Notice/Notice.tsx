@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import NoticeList from './NoticeList'
+import BottomBar from '../../BottomBar'
 
 export default function Login() {
   return(
@@ -17,7 +18,7 @@ export default function Login() {
           <NoticeList/>
         </View>
       </ScrollView>
-
+    <BottomBar/>
     </SafeAreaView>
   )
 }
