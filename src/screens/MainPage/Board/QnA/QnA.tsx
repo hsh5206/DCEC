@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import Axios from 'axios'
+import moment from 'moment'
 import {useSelector} from 'react-redux'
 import {
   StyleSheet,
@@ -17,12 +18,11 @@ import type {AppState} from '../../../../store'
 import * as L from '../../../../store/login'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-
 const iconSize = 16
-
 
 export default function Login() {
   const [techInfos, settechInfos] = useState([])
+  const [infos, setinfos] = useState([])
   const navigation = useNavigation()
   const TechPress = useCallback(
     link => () => navigation.navigate('ContWebView', {link: link}),
@@ -30,7 +30,7 @@ export default function Login() {
   )
   //버튼 클릭
   const onPress = useCallback(
-     () => navigation.navigate('QnA_Board', {}),
+    id => () => navigation.navigate('QnA_Board', {id: id}),
     [],
   )
   const writingPress = useCallback(
@@ -43,11 +43,10 @@ export default function Login() {
   const {loggedIn, loggedUser} = login
 
   useEffect(() => {
-    Axios.get(`http://15.164.68.127:8080/api/user/tech_blog?search=&tag=LINE`, {
+    Axios.get(`http://15.164.68.127:8080/api/user/board?boardType=QA`, {
       headers: {Authorization: loggedUser.token},
     }).then(res => {
-      // console.log(res.data.content)
-      settechInfos(res.data)
+      setinfos(res.data.content)
     })
   }, [])
 
@@ -57,15 +56,18 @@ export default function Login() {
       <ScrollView>
         <View style={styles.content}>
           <View style={{flex: 1, paddingVertical: 1}}>
-            {techInfos.map((item, index) => {
+            {infos.map((item, index) => {
               return (
                 <TouchableOpacity
                   style={styles.view}
-                  onPress={onPress}>
-                  <View style={{flexDirection: 'row', paddingTop:'3%'}}>
-                    <View style={{width:'100%'}}>
-                      <View style={{width:'100%'}}>
-                        <Text numberOfLines={1} ellipsizeMode="tail" style={{fontSize:15}}>
+                  onPress={onPress(item.id)}>
+                  <View style={{flexDirection: 'row', paddingTop: '3%'}}>
+                    <View style={{width: '100%'}}>
+                      <View style={{width: '100%'}}>
+                        <Text
+                          numberOfLines={1}
+                          ellipsizeMode="tail"
+                          style={{fontSize: 15}}>
                           {item.title}
                         </Text>
                         <View>
@@ -73,12 +75,27 @@ export default function Login() {
                         </View>
                       </View>
                       <View style={styles.date}>
-                        <Text style={{color: Colors.grey600}}>게시 날짜 / {item.createBy} </Text>
-                        <View style={{flexDirection:'row'}}>
-                          <Icon name='heart-outline' size={iconSize} color='red'/>
-                          <Text style={{color: Colors.grey600}}>좋아요  </Text>
-                          <Icon name='chat-outline' size={iconSize} color='#52b9f1'/>
-                          <Text style={{color: Colors.grey600}}>댓글</Text>
+                        <Text style={{color: Colors.grey600}}>
+                          {moment(item.createTime).format('MM.DD')} |
+                          {item.createBy}
+                        </Text>
+                        <View style={{flexDirection: 'row'}}>
+                          <Icon
+                            name="heart-outline"
+                            size={iconSize}
+                            color="red"
+                          />
+                          <Text style={{color: Colors.grey600}}>
+                            {item.viewCount}{' '}
+                          </Text>
+                          <Icon
+                            name="chat-outline"
+                            size={iconSize}
+                            color="#52b9f1"
+                          />
+                          <Text style={{color: Colors.grey600}}>
+                            {item.commentNum}
+                          </Text>
                         </View>
                       </View>
                     </View>
