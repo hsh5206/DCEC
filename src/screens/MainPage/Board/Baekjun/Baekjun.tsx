@@ -8,7 +8,8 @@ import {
 } from 'react-native'
 import BottomBar from '../../BottomBar'
 import Baekjun_Ranking from './Baekjun_Ranking'
-import Baekjun_QnA from './Baekjun_QnA'
+import Github_Ranking from '../Github/Github_Ranking'
+import QnA from './Baekjun_QnA'
 
 export default function Login() {
   return(
@@ -16,12 +17,13 @@ export default function Login() {
       <ScrollView style={{backgroundColor:'white'}}>
         <View style={styles.content}>
           <Baekjun_Ranking/>
-          <Baekjun_QnA/>
+          <Github_Ranking/>
+          <QnA/>
         </View>
       </ScrollView>
       <BottomBar/>
     </SafeAreaView>
-  )
+  ) 
 }
 
 const styles = StyleSheet.create({

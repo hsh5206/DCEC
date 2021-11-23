@@ -9,7 +9,6 @@ const iconSize = 18
 export default function Login() {
 
   const onPress_chat = () => {alert("Pressed")}
-  const onPress_heart = () => {alert("Pressed")}
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -24,9 +23,6 @@ export default function Login() {
               <Icon name='chat-outline' size={iconSize} color='#52b9f1'/>
             </TouchableOpacity>
             <Text> {/*필요한 빈공간 */} </Text>
-            <TouchableOpacity style={{flexDirection:'row'}} onPress={onPress_heart}>
-              <Icon name='heart-outline' size={iconSize} color='red'/>
-            </TouchableOpacity>
             
           </View>
         </View>

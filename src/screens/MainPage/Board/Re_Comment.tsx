@@ -20,11 +20,6 @@ export default function Login() {
             <Text style={styles.writer}>작성자  </Text>
             <Text style={{color: Colors.grey600, fontSize:13}}>날짜/시간 </Text>
           </View>
-          <View style={{flexDirection:'row', alignItems:'center'}}>
-            <TouchableOpacity style={{flexDirection:'row'}} onPress={onPress_heart}>
-              <Icon name='heart-outline' size={iconSize} color='red'/>
-            </TouchableOpacity>
-          </View>
         </View>
         <View style={{height:'80%', justifyContent:'center'}}>
           <Text style={styles.comment}> 댓글 내용 </Text>

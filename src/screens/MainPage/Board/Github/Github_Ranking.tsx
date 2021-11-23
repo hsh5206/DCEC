@@ -30,7 +30,6 @@ export default function GithubRank() {
 //상단 flexDirection->가로배치 alignItems->세로기준 가운데 justyfyContent->가로 배치
 const styles = StyleSheet.create({
   view: {
-    paddingTop:'3%',
     flex:1,
     paddingHorizontal: '4%',
     backgroundColor: Colors.white,

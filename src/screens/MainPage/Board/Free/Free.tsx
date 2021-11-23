@@ -30,7 +30,7 @@ export default function Login() {
   )
   //버튼 클릭
   const onPress = useCallback(
-     () => navigation.navigate('QnA_Board', {}),
+     () => navigation.navigate('Free_Board', {}),
     [],
   )
   const writingPress = useCallback(

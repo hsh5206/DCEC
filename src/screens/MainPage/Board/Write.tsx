@@ -5,13 +5,11 @@ import {Colors} from 'react-native-paper'
 
 export default function Login() {
 
-  const writingPress = useCallback(
-    () => alert('Write'), []
- )
+  const writingPress = useCallback(() => alert('Write'), [])
 
   return (
     <>
-      <ScrollView>
+      <ScrollView style={{backgroundColor:'white'}}>
         <View style={[{height:'13%',width:'100%', alignItems:'center',paddingRight:'5%' , flexDirection:'row',justifyContent:'flex-end'}]}>
           <TouchableOpacity style={[styles.button,{alignItems:'center',flexDirection:'row',justifyContent:'center'}]} onPress={writingPress}>
             <Text style={{fontSize:20,color:'white',fontWeight:'bold',justifyContent:'flex-end'}}>완료</Text>
