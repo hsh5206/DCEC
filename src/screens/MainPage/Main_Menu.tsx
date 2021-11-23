@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react'
-import {StyleSheet, View} from 'react-native'
+import {StyleSheet, View, Text} from 'react-native'
 import {Colors} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import {useNavigation} from '@react-navigation/native'
@@ -43,16 +43,16 @@ export default function BottomBar() {
   return(
     <View style={[styles.viewmain]}>
     <View style={[styles.view]}> 
-      <Icon name='home' size={iconSize} color={iconColor} onPress={homePress}/>
+      <Icon name='chart-bar' size={iconSize} color={iconColor} onPress={rankPress}/>
       <Icon name='table' size={iconSize} color={iconColor} onPress={tablePress}/>
       <Icon name='bell' size={iconSize} color={iconColor} onPress={bellPress}/>
       <Icon name='cog-outline' size={iconSize} color={iconColor} onPress={settingPress}/>
     </View>
     <View style={[styles.view]}>
-      <Icon name='chart-bar' size={iconSize} color={iconColor} onPress={rankPress}/>
-      <Icon name='book-open-page-variant' size={iconSize} color={iconColor} onPress={TechInfoPress}/>
-      <Icon name='chat' size={iconSize} color={iconColor} onPress={chatPress}/>
-      <Icon name='account' size={iconSize} color={iconColor} onPress={accountPress}/>
+      <Text> 랭킹 </Text>
+      <Text>게시판 </Text>
+      <Text>알림 </Text>
+      <Text> 설정 </Text>
     </View>
     </View>
   )
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around', //배치 flex-start,flex-end,center,space-around,space-between,space-evenly
-    padding: 10,
+    padding: 1,
     backgroundColor: Colors.white,
     borderRadius: 20,
   },
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20,
     height: '80%',
+    paddingVertical:'5%'
   },
   text: {
     fontSize: 20,

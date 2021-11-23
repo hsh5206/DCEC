@@ -10,6 +10,9 @@ import {
   Text,
   TouchableOpacity,
   Alert,
+  Modal,
+  Pressable,
+  TextInput
 } from 'react-native'
 import {Colors} from 'react-native-paper'
 import {useNavigation} from '@react-navigation/native'
@@ -18,6 +21,8 @@ import {AppState} from '../../store'
 import * as L from '../../store/login'
 
 export default function Login() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const navigation = useNavigation()
   const Baek_onPress = useCallback(() => navigation.navigate('SeeBaek'), [])
   const Git_onPress = useCallback(() => navigation.navigate('SeeGit'), [])
@@ -73,13 +78,40 @@ export default function Login() {
                 <Text style={{fontSize: 20, marginVertical: 10}}>
                   정보가 없습니다
                 </Text>
-                <TouchableOpacity style={[styles.submitButton]}>
-                  <Text
-                    style={{color: '#52b9f1', fontSize: 15, fontWeight: '600'}}
-                    onPress={BackjoonIdSubmit}>
-                    백준 아이디 등록
-                  </Text>
-                </TouchableOpacity>
+                
+                <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                  Alert.alert("Modal has been closed.");
+                  setModalVisible(!modalVisible);
+                }}
+              >
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <Text style={styles.modalText}>아이디를 입력하세요</Text>
+                    <TextInput
+                      placeholder= "ID"
+                      style={[styles.inputText]}
+                    />
+                    {/* 얘가 눌렀을 때 함수 */}
+                    <Pressable
+                      style={[styles.button, styles.buttonClose]}
+                      onPress={() => (setModalVisible(!modalVisible))} 
+                    >
+                      <Text style={styles.textStyle}>확인</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </Modal>
+              <Pressable
+                style={[styles.button, styles.buttonOpen]}
+                onPress={() => setModalVisible(true)}
+              >
+                <Text style={styles.textStyle}>백준 아이디 등록</Text>
+              </Pressable>
+
               </View>
             </View>
           )}
@@ -98,7 +130,7 @@ export default function Login() {
                 </Text>
                 <TouchableOpacity style={[styles.loginButton]}>
                   <Text
-                    style={{color: '#52b9f1', fontSize: 15, fontWeight: '600'}}
+                    style={{color: 'white', fontSize: 15, fontWeight: '600'}}
                     onPress={Baek_onPress}>
                     문제 조회
                   </Text>
@@ -164,13 +196,40 @@ export default function Login() {
                 <Text style={{fontSize: 20, marginVertical: 10}}>
                   정보가 없습니다
                 </Text>
-                <TouchableOpacity style={[styles.submitButton]}>
-                  <Text
-                    style={{color: '#52b9f1', fontSize: 15, fontWeight: '600'}}
-                    onPress={BackjoonIdSubmit}>
-                    깃허브 아이디 등록
-                  </Text>
-                </TouchableOpacity>
+
+                <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                  Alert.alert("Modal has been closed.");
+                  setModalVisible(!modalVisible);
+                }}
+              >
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <Text style={styles.modalText}>아이디를 입력하세요</Text>
+                    <TextInput
+                      placeholder= "ID"
+                      style={[styles.inputText]}
+                    />
+                    {/* 얘가 눌렀을 때 함수 */}
+                    <Pressable
+                      style={[styles.button, styles.buttonClose]}
+                      onPress={() => (setModalVisible(!modalVisible))} 
+                    >
+                      <Text style={styles.textStyle}>확인</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </Modal>
+              <Pressable
+                style={[styles.button, styles.buttonOpen]}
+                onPress={() => setModalVisible(true)}
+              >
+                <Text style={styles.textStyle}>깃허브 아이디 등록</Text>
+              </Pressable>
+
               </View>
             </View>
           )}
@@ -190,7 +249,7 @@ export default function Login() {
                 <TouchableOpacity
                   style={[styles.loginButton, {height: '100%'}]}>
                   <Text
-                    style={{color: '#52b9f1', fontSize: 15, fontWeight: '600'}}
+                    style={{color: 'white', fontSize: 15, fontWeight: '600'}}
                     onPress={Git_onPress}>
                     레포지터리 조회
                   </Text>
@@ -260,7 +319,7 @@ const styles = StyleSheet.create({
     height: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.grey300,
+    backgroundColor:'#52b9f1',
     borderRadius: 8,
   },
   submitButton: {
@@ -270,5 +329,57 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.grey300,
     borderRadius: 8,
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#52b9f1",
+  },
+  buttonClose: {
+    backgroundColor: "#52b9f1",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  },
+  inputText: {
+    width: 140,
+    height: 40,
+    marginVertical: '1%',
+    borderWidth: 2,
+    borderColor: Colors.grey200,
+    borderRadius: 20,
+    paddingLeft: 10,
+    backgroundColor: 'white',
   },
 })

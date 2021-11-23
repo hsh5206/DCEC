@@ -44,15 +44,15 @@ export default function Login() {
           </View>
         </View>
 
-        <View style={[styles.content,{height:160}]}>
-          <TouchableOpacity onPress={Account}>
+        <TouchableOpacity onPress={Account}>
+          <View style={[styles.content,{height:160}]}>
             <View>
               <Text style={{fontSize:23, fontWeight:'bold', marginVertical:10}}>연동 계정 관리</Text>
               <Text style={{fontSize:20, marginVertical:10}}>백준</Text>
               <Text style={{fontSize:20, marginVertical:10}}>깃허브</Text>
             </View>
-          </TouchableOpacity>
-        </View>
+          </View>
+        </TouchableOpacity>
 
         <View style={[styles.content,{height:200}]}>
           <View>
