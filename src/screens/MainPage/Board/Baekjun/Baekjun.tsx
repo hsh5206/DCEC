@@ -9,7 +9,6 @@ import {
 import BottomBar from '../../BottomBar'
 import Baekjun_Ranking from './Baekjun_Ranking'
 import Baekjun_QnA from './Baekjun_QnA'
-import Baekjun_HotProb from './Baekjun_HotProb'
 
 export default function Login() {
   return(
@@ -17,7 +16,6 @@ export default function Login() {
       <ScrollView style={{backgroundColor:'white'}}>
         <View style={styles.content}>
           <Baekjun_Ranking/>
-          <Baekjun_HotProb/>
           <Baekjun_QnA/>
         </View>
       </ScrollView>
