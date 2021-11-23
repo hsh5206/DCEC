@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useCallback, useEffect, useRef} from 'react'
 import {
   StyleSheet,
   SafeAreaView,
@@ -9,40 +9,32 @@ import {
   Platform
 } from 'react-native'
 import {Colors} from 'react-native-paper'
-
-const onPress = () => {
-
-}
+import {useNavigation} from '@react-navigation/native'
 
 export default function Login() {
+
+  const navigation = useNavigation()
+  const goNext = useCallback(() => navigation.navigate('Signup3'), [])
+
   return(
-    <SafeAreaView style={{flex:1}}>
-      <View style={[styles.header,{marginTop:'25%'}]}>
-        <View style ={{flex: 0.8, marginTop: '3%'}}>
-        <Text style={{fontSize: 25, marginLeft: '3%', marginTop: Platform.select({ios : '10%', android: '6%'})}}>회원가입</Text>
-        </View>
-        <View style={{width: '95%', borderBottomWidth:1, borderColor:'#444'}}/>
+    <SafeAreaView style={{flex:1, backgroundColor:'#52b9f1'}}>
+      <View style={[styles.header,{marginTop:'40%'}]}>
+
+        <View style={{width: '90%', borderBottomWidth:2, borderColor:'#52b9f1'}}/>
       </View>
 
       <View style={[styles.content]}>
-        <View style={[styles.object]}>
-          <TextInput placeholder="아이디 입력" style={styles.inputText}/>
-          <TouchableOpacity style={styles.checkButton}>
-            <Text style={{color:'white', fontSize:18, fontWeight:'300'}} onPress={onPress}>중복확인</Text>
-          </TouchableOpacity>
-        </View>
+        
         <View style={[styles.object]}>
           <TextInput placeholder="비밀번호 입력 (영문+숫자+특수문자 8~15자)" style={[styles.inputText, {width:'100%'}]}/>
         </View>
         <View style={[styles.object]}>
           <TextInput placeholder="비밀번호 확인"style={[styles.inputText, {width:'100%'}]}/>
         </View>
-        <View style={[styles.object]}>
-          <TextInput placeholder="이름"style={[styles.inputText, {width:'100%'}]}/>
-        </View>
+        
         <View style= {[{alignItems:'center'}]}>
-          <TouchableOpacity style={styles.signupButton}>
-            <Text style={{color:'white', fontSize:18, fontWeight:'300'}} onPress={onPress}>회원가입</Text>
+          <TouchableOpacity style={styles.signupButton} onPress={goNext}>
+            <Text style={{color:'#52b9f1', fontSize:20, fontWeight:'500'}}>다음</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -58,7 +50,8 @@ const styles = StyleSheet.create({
   header: {
     height: '15%',
     marginHorizontal:'5%',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor:'#52b9f1'
   },
   content: {
     flex:1,
@@ -69,15 +62,18 @@ const styles = StyleSheet.create({
     marginHorizontal:'5%',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#52b9f1'
   },
   inputText: {
     width:'70%',
     height:'90%',
     marginVertical: '1%',
     borderWidth: 2,
-    borderColor: Colors.grey500,
-    borderRadius: 10
+    borderColor: Colors.lightBlue100,
+    borderRadius: 10,
+    paddingLeft: 10,
+    backgroundColor: 'white',
   },
   object: {
     height:50,
@@ -91,16 +87,16 @@ const styles = StyleSheet.create({
     height: '85%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.grey800,
-    borderRadius: 10
+    backgroundColor: Colors.lightBlue100,
+    borderRadius: 12
   },
   signupButton: {
-    width: '90%',
+    width: '100%',
     height: '35%',
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: '1%',
-    backgroundColor: Colors.grey800,
-    borderRadius: 10
+    backgroundColor: Colors.lightBlue100,
+    borderRadius: 15
   }
 })
