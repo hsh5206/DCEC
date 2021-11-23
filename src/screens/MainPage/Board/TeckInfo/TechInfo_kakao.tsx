@@ -5,7 +5,6 @@ import {
   StyleSheet,
   SafeAreaView,
   View,
-  ScrollView,
   Text,
   TouchableOpacity,
   Image,
@@ -45,29 +44,27 @@ export default function Login() {
   }, [])
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white', alignItems:'center',}}>
+    <SafeAreaView
+      style={{flex: 1, backgroundColor: 'white', alignItems: 'center'}}>
       <FlatList
         data={techInfos}
         renderItem={({item}) => (
           <TouchableOpacity
             style={[styles.card]}
             onPress={TechPress(item.link)}>
-              <View style={{alignItems:'center', paddingVertical:'5%'}}>
-            <View>
-              <Image style={styles.image} source={{uri: item.imageUrl}} />
+            <View style={{alignItems: 'center', paddingVertical: '5%'}}>
+              <View>
+                <Image style={styles.image} source={{uri: item.imageUrl}} />
+              </View>
+              <View style={{width: '95%', paddingLeft: '3%'}}>
+                <Text
+                  style={{fontSize: 16}}
+                  numberOfLines={2}
+                  ellipsizeMode="tail">
+                  {item.title}
+                </Text>
+              </View>
             </View>
-            <View style={{width:'95%', paddingLeft:'3%'}}>
-              <Text style={{fontSize:16}} numberOfLines={2} ellipsizeMode="tail">
-                {item.title}
-              </Text>
-            </View>
-            </View>
-
-            {/* <View>
-              <Text numberOfLines={2} ellipsizeMode="tail">
-                {item.description}
-              </Text>
-            </View> */}
           </TouchableOpacity>
         )}
         columnWrapperStyle={styles.imageRow}
@@ -78,48 +75,18 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    marginHorizontal: '2%',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  date: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    width: '90%',
-  },
-  view: {
-    flex: 1,
-    height: 70,
-    backgroundColor: 'white',
-  },
-  logo: {
-    width: 60,
-    height: 50,
-    borderRadius: 10,
-    marginTop: '1%',
-    marginRight: '2%',
-  },
-  /* 추가 */
-  wrap: {
-    flex: 1,
-  },
   imageRow: {
     justifyContent: 'space-evenly',
   },
   image: {
     width: 160,
     height: 120,
-    borderRadius:20
+    borderRadius: 20,
   },
   card: {
     marginHorizontal: '1%',
     marginVertical: '3%',
     flexBasis: '45%',
-    borderRadius:20,
-
+    borderRadius: 20,
   },
 })
