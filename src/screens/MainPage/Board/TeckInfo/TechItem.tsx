@@ -11,7 +11,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen'
 export default function Login() {
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-      <ScrollView style={styles.content}>
+      <View style={styles.content}>
         <Text style={{fontSize:18, fontWeight: 'bold'}}>제목임미다{"\n"}</Text>
         <Text style={{fontSize: 18, fontWeight:'bold'}}>크루들의 지식과 경험을 나눠 함께 성장해 가는 
         Techtalk 다 번째 이야기{"\n"}</Text>
@@ -35,7 +35,7 @@ export default function Login() {
         동료들의 추천으로 발표를 하게 되었는데요, 발표 준비에 시간은 들어가지만 시간을 들여서 준비할만한 가치가 있다고 느꼈습니다. 작업할 때는 신경 쓰지 못했던 부분이나 크게 신경 쓰지 않고 넘어갔던 부분들도 다시 한번 생각하게 되었고, 미처 준비하지 못한 부분들도 고민을 하게 되었던 것 같습니다. 좋은 자리를 마련해 주신 테크톡TF에 고맙다는 감사의 인사 전하고 싶습니다! 고생 많으셨습니다.{"\n"}
         제가 예전에 책을 쓰고 그 책에 관한 컨퍼런스를 준비하고 발표를 했었는데요, 그때 당시에는 조금 무섭고 용기도 안났지만, 막상 이를 극복하고 준비해서 발표까지 해보니 제가 개발자로서 한층 성장했다는 느낌을 받을 수 있었습니다. 그래서 파트 내 개발자 동료들에게도 테크톡 발표에 참여하도록 적극 장려하고 있는데요! 크루 분들 중에서도 조금 더 개발자로서 성장하고 싶으시다거나, 공유하고 싶은 이야기가 있으신 분들은 망설이지 마시고 가벼운 마음으로 테크톡 발표자로 참여해 보시길 적극 추천드립니다!{"\n"}
         </Text>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   )
 }
