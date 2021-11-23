@@ -17,7 +17,6 @@ export default function Login() {
       <ScrollView style={{backgroundColor:'white'}}>
         <View style={styles.content}>
           <Github_Ranking/>
-          <Github_Month/>
           <Github_QnA/>
         </View>
       </ScrollView>

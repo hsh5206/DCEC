@@ -11,6 +11,8 @@ import ContestInfo from '../screens/MainPage/Board/ContestInfo/Contest_Informati
 import NoticeItem from '../screens/MainPage/Board/Notice/NoticeItem'
 import TechItem from '../screens/MainPage/Board/TeckInfo/TechItem'
 import ContWebView from '../screens/MainPage/Board/ContestInfo/Contest_Webview'
+import QnA from '../screens/MainPage/Board/QnA'
+import QnA_Board from '../screens/MainPage/Board/QnA_Board'
 
 import TopBar from '../screens/MainPage/TopBar'
 
@@ -26,6 +28,8 @@ export default function StartNavigator(){
     <Stack.Navigator>
       <Stack.Screen name="Board" component={Board} options={{headerShown:false}}/>
       <Stack.Screen name="Baekjun" component={Baekjun} options={{title: "백준", headerBackTitle:' ', headerStatusBarHeight:1}}/>
+      <Stack.Screen name="QnA" component={QnA} options={{title: "QnA", headerBackTitle:' ', headerStatusBarHeight:1}}/>
+      <Stack.Screen name="QnA_Board" component={QnA_Board} options={{title: " ", headerBackTitle:' ', headerStatusBarHeight:1}}/>
       <Stack.Screen name="Github" component={Github} options={{title: "깃허브", headerBackTitle:' ', headerStatusBarHeight:1}}/>
       <Stack.Screen name="Notice" component={Notice} options={{title: "공지사항", headerBackTitle:' ', headerStatusBarHeight:1}}/>
       <Stack.Screen name="ContInfo" component={ContestInfo} options={{title: "공모전", headerBackTitle:' ', headerStatusBarHeight:1}}/>
