@@ -34,9 +34,9 @@ export default function Login() {
     [],
   )
   const writingPress = useCallback(
-    () => navigation.navigate('Write', {}),
-   [],
- )
+    () => navigation.navigate('Write', {boardType: 'QA'}),
+    [],
+  )
 
   //login
   const login = useSelector<AppState, L.State>(state => state.login)
@@ -52,61 +52,72 @@ export default function Login() {
 
   return (
     <>
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <ScrollView>
-        <View style={styles.content}>
-          <View style={{flex: 1, paddingVertical: 1}}>
-            {infos.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  style={styles.view}
-                  onPress={onPress(item.id)}>
-                  <View style={{flexDirection: 'row', paddingTop: '3%'}}>
-                    <View style={{width: '100%'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <ScrollView>
+          <View style={styles.content}>
+            <View style={{flex: 1, paddingVertical: 1}}>
+              {infos.map((item, index) => {
+                return (
+                  <TouchableOpacity
+                    style={styles.view}
+                    onPress={onPress(item.id)}>
+                    <View style={{flexDirection: 'row', paddingTop: '3%'}}>
                       <View style={{width: '100%'}}>
-                        <Text
-                          numberOfLines={1}
-                          ellipsizeMode="tail"
-                          style={{fontSize: 15}}>
-                          {item.title}
-                        </Text>
-                        <View>
-                          <Text>{/*빈공간 or 내용 한줄...*/}</Text>
-                        </View>
-                      </View>
-                      <View style={styles.date}>
-                      <View style={{flexDirection:'row'}}>
-                        <Text style={{color: Colors.grey600}}>
-                          {moment(item.createTime).format('MM.DD')} |
-                          {item.createBy}
-                        </Text>
-                        </View>
-                        <View style={{flexDirection: 'row'}}>
-                          <Icon name='chat-outline' size={iconSize} color='#52b9f1'/>
-                          <Text style={{color: Colors.grey600}}>
-                            {item.commentNum}{' '}
+                        <View style={{width: '100%'}}>
+                          <Text
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                            style={{fontSize: 15}}>
+                            {item.title}
                           </Text>
-                          <Icon name='eye-outline' size={iconSize} color='black'/>
-                          <Text style={{color: Colors.grey600}}>
-                            {item.viewCount}
-                          </Text>
+                          <View>
+                            <Text>{/*빈공간 or 내용 한줄...*/}</Text>
+                          </View>
+                        </View>
+                        <View style={styles.date}>
+                          <View style={{flexDirection: 'row'}}>
+                            <Text style={{color: Colors.grey600}}>
+                              {moment(item.createTime).format('MM.DD')} |
+                              {item.createBy}
+                            </Text>
+                          </View>
+                          <View style={{flexDirection: 'row'}}>
+                            <Icon
+                              name="chat-outline"
+                              size={iconSize}
+                              color="#52b9f1"
+                            />
+                            <Text style={{color: Colors.grey600}}>
+                              {item.commentNum}{' '}
+                            </Text>
+                            <Icon
+                              name="eye-outline"
+                              size={iconSize}
+                              color="black"
+                            />
+                            <Text style={{color: Colors.grey600}}>
+                              {item.viewCount}
+                            </Text>
+                          </View>
                         </View>
                       </View>
                     </View>
-                  </View>
-                </TouchableOpacity>
-              )
-            })}
+                  </TouchableOpacity>
+                )
+              })}
+            </View>
           </View>
+        </ScrollView>
+      </SafeAreaView>
+      <TouchableOpacity onPress={writingPress}>
+        <View style={[styles.absoluteView]}>
+          <Icon name="feather" size={20} color="#52b9f1" />
+          <Text style={{fontSize: 16, fontWeight: 'bold', color: 'black'}}>
+            {' '}
+            글 쓰기
+          </Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-    <TouchableOpacity onPress={writingPress}>
-      <View style={[styles.absoluteView]}>
-        <Icon name="feather" size={20} color='#52b9f1'/>
-        <Text style={{fontSize:16, fontWeight:'bold', color:'black'}}> 글 쓰기</Text>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
     </>
   )
 }
@@ -132,10 +143,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginBottom: 1,
   },
-  absoluteView:{
+  absoluteView: {
     width: 90,
     backgroundColor: Colors.grey50,
-    flexDirection:'row',
+    flexDirection: 'row',
     position: 'absolute',
     right: 150,
     bottom: 35,
@@ -143,6 +154,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderColor: Colors.grey300,
     borderWidth: 2,
-    justifyContent:'center'
-  }
+    justifyContent: 'center',
+  },
 })
