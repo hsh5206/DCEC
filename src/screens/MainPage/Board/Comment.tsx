@@ -12,7 +12,6 @@ export default function Login(props) {
   const onPress_chat = () => {
     alert('Pressed')
   }
-
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={styles.header}>
@@ -34,6 +33,9 @@ export default function Login(props) {
               style={{flexDirection: 'row'}}
               onPress={onPress_chat}>
               <Icon name="chat-outline" size={iconSize} color="#52b9f1" />
+              <Text style={{color: Colors.grey600, fontSize: 16}}>
+                {info.replies.length}
+              </Text>
             </TouchableOpacity>
             <Text> {/*필요한 빈공간 */} </Text>
           </View>
