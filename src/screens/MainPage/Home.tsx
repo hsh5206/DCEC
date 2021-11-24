@@ -17,6 +17,7 @@ import GithubRank from './Board/Github/Github_Ranking'
 import HotBoard from './HotBoard'
 import MainMenu from './Main_Menu'
 import Snap from './Snap'
+  
 
 import {AppState} from '../../store'
 import * as L from '../../store/login'
@@ -103,10 +104,13 @@ const styles = StyleSheet.create({
 /*
 <View style={styles.content}>
           <BaekjunRank/>
+
+
+  onst styles = StyleSheet.create({
+  
           <GithubRank/>
           <HotBoard/>
         </View>
-
         <View style={{paddingTop:'8%', paddingHorizontal:'4%', backgroundColor:'white'}}>
         </View>
 */
