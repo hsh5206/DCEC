@@ -11,8 +11,9 @@ import {
 } from 'react-native'
 import {Colors} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import If_My_Wrinting from '../IfMyWriting'
+import {useNavigation} from '@react-navigation/native'
 
+import If_My_Wrinting from '../IfMyWriting'
 import BottomChat from '../Bottom_chat'
 import Comment from '../Comment'
 import ReComment from '../Re_Comment'
@@ -22,6 +23,7 @@ import * as L from '../../../../store/login'
 const iconSize = 20
 
 export default function Login(props) {
+  const navigation = useNavigation()
   const initailInfos = {
     commentNum: '',
     content: '',
@@ -31,15 +33,30 @@ export default function Login(props) {
     title: '',
     viewCount: '',
   }
+  const initialUser = {
+    email: '',
+    entrance: '',
+    graduate: '',
+    id: '',
+    keywords: '',
+    name: '',
+  }
   const [id, setid] = useState(props.route.params.id)
   const [infos, setinfos] = useState(initailInfos)
   const [comments, setcomments] = useState([])
+  const [user, setuser] = useState(initialUser)
 
   //login
   const login = useSelector<AppState, L.State>(state => state.login)
   const {loggedIn, loggedUser} = login
 
   useEffect(() => {
+    Axios.get(`http://15.164.68.127:8080/api/member`, {
+      headers: {Authorization: loggedUser.token},
+    }).then(res => {
+      setuser(res.data)
+    })
+
     // 게시글 조회
     Axios.get(`http://15.164.68.127:8080/api/user/board/${id}?boardType=QA`, {
       headers: {Authorization: loggedUser.token},
@@ -48,11 +65,6 @@ export default function Login(props) {
     })
 
     //게시글 내 댓글 전체 조회(댓글+대댓글)
-    // Axios.get(`http://15.164.68.127:8080/api/user/comment/${id}`, {
-    //   headers: {Authorization: loggedUser.token},
-    // }).then(res => {
-    //   setcomments(res.data)
-    // })
     getTotalComments()
   }, [])
 
@@ -64,22 +76,58 @@ export default function Login(props) {
     })
   }
 
-  const modifyPress = useCallback(() => alert('modify'), [])
-  const deletePress = useCallback(() => alert('delete'), [])
+  const modifyPress = useCallback(
+    () => navigation.navigate('Modify', {boardType: 'QA', boardId: id}),
+    [],
+  )
+  const deletePress = () => {
+    Axios.delete(`http://15.164.68.127:8080/api/user/board/${id}`, {
+      headers: {Authorization: loggedUser.token},
+    }).then(res => {
+      //res 201이면 이동
+      onPress()
+    })
+  }
+
+  const onPress = useCallback(() => navigation.navigate('QnA'), [])
 
   return (
     <>
-      <ScrollView style={{flex: 1, backgroundColor: 'white', paddingTop:10}}>
-      {/* 만약 내가 쓴글이면 아래 컴포넌트가 보이게 아니면 아니게 3항연산자로..?*/}
-      <If_My_Wrinting/>
-
-        <View style={[styles.footer]}>
-          <Text style={styles.writer}>{infos.createBy}</Text>
-          <Text style={{color: Colors.grey600}}>
-            {moment(infos.createTime).format('MM.DD')}{' '}
-            {moment(infos.createTime).format('HH:mm')}
-          </Text>
-        </View>
+      <ScrollView style={{flex: 1, backgroundColor: 'white', paddingTop: 10}}>
+        {/* 만약 내가 쓴글이면 아래 컴포넌트가 보이게 아니면 아니게 3항연산자로..?*/}
+        {user.name === infos.createBy ? (
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={[styles.footer]}>
+              <Text style={styles.writer}>{infos.createBy}</Text>
+              <Text style={{color: Colors.grey600}}>
+                {moment(infos.createTime).format('MM.DD')}{' '}
+                {moment(infos.createTime).format('HH:mm')}{' '}
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                paddingTop: '1%',
+                paddingRight: '5%',
+              }}>
+              <TouchableOpacity onPress={modifyPress}>
+                <Icon name="pencil-outline" size={23} color="grey" />
+              </TouchableOpacity>
+              <Text> {/*필요한 공백 */} </Text>
+              <TouchableOpacity onPress={deletePress}>
+                <Icon name="trash-can-outline" size={23} color="grey" />
+              </TouchableOpacity>
+            </View>
+          </View>
+        ) : (
+          <View style={[styles.footer]}>
+            <Text style={styles.writer}>{infos.createBy}</Text>
+            <Text style={{color: Colors.grey600}}>
+              {moment(infos.createTime).format('MM.DD')}{' '}
+              {moment(infos.createTime).format('HH:mm')}
+            </Text>
+          </View>
+        )}
 
         <View style={[styles.footer]}>
           <Text style={styles.title}>{infos.title}</Text>
@@ -94,14 +142,14 @@ export default function Login(props) {
 
         <View
           style={[styles.footer, {flexDirection: 'row', alignItems: 'center'}]}>
-          <View style={{flexDirection:'row',alignItems:'center'}}>
-            <Icon name='chat-outline' size={iconSize} color='#52b9f1'/>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Icon name="chat-outline" size={iconSize} color="#52b9f1" />
             <Text style={{color: Colors.grey600, fontSize: 16}}>
-            {infos.commentNum}{' '}
+              {infos.commentNum}{' '}
             </Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Icon name='eye-outline' size={iconSize} color='black'/>
+            <Icon name="eye-outline" size={iconSize} color="black" />
             <Text style={{color: Colors.grey600, fontSize: 16}}>
               {infos.viewCount}
             </Text>
