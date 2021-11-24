@@ -21,7 +21,6 @@ export default function StartNavigator(){
   return(
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
-      <Stack.Screen name="Board" component={Board} options={{headerShown: false}}/>
       <Stack.Screen name="Nontification" component={Nontification} options={{title:" 알림 ", headerBackTitle: ' '}}/>
       <Stack.Screen name="UserSettings" component={UserSettings} options={{title:"내정보"}}/>
       <Stack.Screen name="Account" component={Account} options={{title:"연동계정 관리", headerBackTitle: ' '}}/>
@@ -37,11 +36,6 @@ export default function StartNavigator(){
       <Stack.Screen
             name="SettingNavigator"
             component={SettingNavigator}
-            options={{headerShown: false}}
-      />
-      <Stack.Screen
-            name="TechNavigator"
-            component={TechNavigator}
             options={{headerShown: false}}
       />
       <Stack.Screen

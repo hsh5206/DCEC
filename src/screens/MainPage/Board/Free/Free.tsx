@@ -50,7 +50,7 @@ export default function Login() {
       settechInfos(res.data)
     })
   }, [])
-
+ 
   return (
     <>
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>

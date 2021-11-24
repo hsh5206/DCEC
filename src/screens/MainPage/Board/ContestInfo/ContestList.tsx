@@ -41,6 +41,9 @@ export default function NoticeList() {
               <Text numberOfLines={1} ellipsizeMode="tail">
                 {item.title}
               </Text>
+              <View>
+                <Text>{/*빈공간 or 내용 한줄...*/}</Text>
+              </View>
             </View>
             <View style={styles.date}>
               <Text style={{color: Colors.grey600}}>{item.createdBy}</Text>
