@@ -69,10 +69,8 @@ export default function Login(props) {
 
   return (
     <>
-      <ScrollView style={{flex: 1, backgroundColor: 'white', paddingTop:10}}>
-      {/* 만약 내가 쓴글이면 아래 컴포넌트가 보이게 아니면 아니게 3항연산자로..?*/}
-      <If_My_Wrinting/>
-
+      <ScrollView style={{flex: 1, backgroundColor: 'white', paddingTop:10}}> 
+      <View style={{flexDirection:'row', justifyContent:'space-between'}}>
         <View style={[styles.footer]}>
           <Text style={styles.writer}>{infos.createBy}</Text>
           <Text style={{color: Colors.grey600}}>
@@ -80,6 +78,9 @@ export default function Login(props) {
             {moment(infos.createTime).format('HH:mm')}
           </Text>
         </View>
+        {/* 만약 내가 쓴글이면 아래 컴포넌트가 보이게 아니면 아니게 3항연산자로..?*/}
+      <If_My_Wrinting/>
+      </View>
 
         <View style={[styles.footer]}>
           <Text style={styles.title}>{infos.title}</Text>

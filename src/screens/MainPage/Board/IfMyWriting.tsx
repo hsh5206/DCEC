@@ -11,10 +11,6 @@ export default function Login() {
 
   return (
     <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-        <View style={[styles.footer]}>
-          <Text style={styles.writer}>작성자</Text>
-          <Text style={{color: Colors.grey600}}>날짜/시간 </Text>
-        </View>
         <View style={{flexDirection:'row',paddingTop:'1%', paddingRight:'5%'}}>
           <TouchableOpacity onPress={modifyPress}>
           <Icon name='pencil-outline' size={23} color='grey'/>
