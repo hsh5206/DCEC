@@ -56,7 +56,7 @@ export default function Login(props) {
     })
   }
 
-  const onPress = useCallback(() => navigation.navigate('QnA'), [])
+  const onPress = useCallback(() => navigation.navigate('Board'), [])
 
   return (
     <>

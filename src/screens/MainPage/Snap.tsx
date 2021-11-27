@@ -10,9 +10,9 @@ import {thisTypeAnnotation} from '@babel/types'
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7)
 const ITEM_HEIGHT = Math.round(ITEM_WIDTH * 1.2)
-
-//10개만
-const DATA = []
+    
+//10개만  
+const DATA = [] 
 for (let i = 0; i < 10; i++) {
   DATA.push(i)
 }
