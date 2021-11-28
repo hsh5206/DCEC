@@ -28,7 +28,7 @@ export default function Login(props) {
   useEffect(() => {
     // 게시글 조회
     Axios.get(
-      `http://15.164.68.127:8080/api/user/board/${boardId}?boardType=QA`,
+      `http://15.164.68.127:8080/api/user/board/${boardId}?boardType=${boardType}`,
       {
         headers: {Authorization: loggedUser.token},
       },
