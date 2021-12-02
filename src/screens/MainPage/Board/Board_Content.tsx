@@ -36,7 +36,7 @@ export default function Login() {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={{marginTop:0, marginLeft:200}}onPress={NoticePress}>
+          <TouchableOpacity style={{marginTop:0, marginLeft:210}}onPress={NoticePress}>
             <Text style={styles.button}>공지사항</Text>
           </TouchableOpacity>
         </View>
