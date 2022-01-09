@@ -56,17 +56,23 @@ export default function Login(props) {
             infos.length > 0 &&
             infos.map((item, index) => (
               <View style={{flex: 1}}>
-                <TouchableOpacity style={styles.view}>
+                <View style={styles.view}>
                   <View
                     style={{
                       flexDirection: 'row',
                       justifyContent: 'space-around',
                     }}>
-                    <Text>{item.title}</Text>
-                    <Text>{item.language}</Text>
-                    <Text>{item.description}</Text>
+                    <View style={{height:50, width:'30%'}}>
+                      <Text numberOfLines={5}>{item.title}</Text>
+                    </View>
+                    <View style={{height:30, width:'40%'}}>
+                      <Text numberOfLines={5}style={{}}>{item.language}</Text>
+                    </View>
+                    <View style={{height:30, width:'40%'}}>
+                      <Text numberOfLines={5} style={{}}>{item.description}</Text>
+                    </View>
                   </View>
-                </TouchableOpacity>
+                </View>
               </View>
             ))}
         </View>
