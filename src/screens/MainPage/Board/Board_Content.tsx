@@ -17,7 +17,8 @@ export default function Login() {
 
   //navigation
   const navigation = useNavigation()
-  const BackjunPress = useCallback(() => navigation.navigate('Baekjun_Github'), [])
+  // const BackjunPress = useCallback(() => navigation.navigate('Baekjun_Github'), [])
+  
   const GithubPress = useCallback(() => navigation.navigate('Github'), [])
   const NoticePress = useCallback(() => navigation.navigate('Notice'), [])
   const TechInfoPress = useCallback(() => navigation.navigate('TechNavigator'), [])
@@ -31,7 +32,7 @@ export default function Login() {
     <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <ImageBackground style={styles.content}source={require("../../../assets/images/Board_Content_Design_v3.png")}>
         <View>
-          <TouchableOpacity style={{marginTop:100, marginLeft:25}}onPress={BackjunPress}>
+          <TouchableOpacity style={{marginTop:100, marginLeft:25}}>
             <Text style={styles.button}>백준&깃허브</Text>
           </TouchableOpacity>
         </View>
